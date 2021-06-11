@@ -1,6 +1,6 @@
 import React from "react";
 
-const API_URL = process.env.CREATE_REACT_APP_API_ENDPOINT || "http://localhost:4000";
+const API_URL = process.env.REACT_APP_API_ENDPOINT || "http://localhost:4000";
 export type Post = {
   content: string;
   id: string;
