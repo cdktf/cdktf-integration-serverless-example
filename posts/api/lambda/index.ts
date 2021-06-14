@@ -1,5 +1,5 @@
-import deburr from 'lodash/deburr';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2, APIGatewayProxyStructuredResultV2 } from "aws-lambda";
+import * as storage from './posts';
 
 type APIGatewayProxyStructuredResultV2Json = Omit<APIGatewayProxyStructuredResultV2, 'body'> & { body: any };
 
@@ -30,6 +30,7 @@ export async function handler(event: APIGatewayProxyEventV2): Promise<APIGateway
             switch (method) {
                 case 'GET': return jsonResponse(await getAllPosts(event));
                 case 'POST': return jsonResponse(await postPost(event));
+                case 'OPTIONS': return { statusCode: 200 };
                 default:
                     return jsonResponse({
                         statusCode: 405,
@@ -41,7 +42,7 @@ export async function handler(event: APIGatewayProxyEventV2): Promise<APIGateway
             const matches = /^\/posts\/([^\/]+)\/detail$/.exec(path)
             if (matches) {
                 if (method === 'GET') {
-                    return jsonResponse(await getPost(event));
+                    return jsonResponse(await getPost(matches[1], event));
                 } else {
                     return jsonResponse({
                         statusCode: 405,
@@ -56,6 +57,7 @@ export async function handler(event: APIGatewayProxyEventV2): Promise<APIGateway
             body: { error: 'No matching route found' }
         });
     } catch (e) {
+        console.error(e);
         return jsonResponse({
             statusCode: 500,
             body: { error: `request failed: ${e.message}` }
@@ -66,23 +68,21 @@ export async function handler(event: APIGatewayProxyEventV2): Promise<APIGateway
 export async function getAllPosts(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2Json> {
     return {
         body: { // TODO: do we really want to wrap this in data? we should make it consistent with getPost
-            data: [
-                { id: 1, content: 'foo', author: 'bar' },
-                { id: 2, content: 'foofoo', author: 'barbar' },
-            ]
+            data: (await storage.getAllPosts())
         }
     }
 }
 
-export async function getPost(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2Json> {
+export async function getPost(id: string, event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2Json> {
     return {
-        body: { id: 2, content: 'foofoo', author: 'barbar' },
+        body: (await storage.getPost(id)),
     }
 }
 
 export async function postPost(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyStructuredResultV2Json> {
+    await storage.addPost(JSON.parse(event.body!) as storage.PostPut);
     return {
         statusCode: 201,
-        body: { id: 1, content: 'foo', author: 'bar' }
+        body: {}
     }
 }

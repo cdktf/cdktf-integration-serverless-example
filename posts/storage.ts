@@ -15,11 +15,11 @@ export class PostsStorage extends Resource {
         this.table = new aws.DynamodbTable(this, 'table', {
             name: `sls-posts-${options.environment}`,
             billingMode: 'PAY_PER_REQUEST',
-            hashKey: 'pk',
-            rangeKey: 'sk',
+            hashKey: 'id',
+            rangeKey: 'postedAt',
             attribute: [
-                { name: 'pk', type: 'S' },
-                { name: 'sk', type: 'S' },
+                { name: 'id', type: 'S' },
+                { name: 'postedAt', type: 'S' },
             ],
         });
     }

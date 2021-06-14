@@ -86,7 +86,9 @@ export class PostsApi extends Resource {
             protocolType: 'HTTP',
             target: lambda.arn,
             corsConfiguration: [{
-                allowOrigins: ['*']
+                allowOrigins: ['*'],
+                allowMethods: ['*'],
+                allowHeaders: ['content-type'],
             }]
         })
 
