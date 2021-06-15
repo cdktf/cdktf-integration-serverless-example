@@ -49,7 +49,11 @@ export class PostsApi extends Resource {
                     "Statement": [
                         {
                             "Action": [
-                                "dynamodb:*"
+                                "dynamodb:Scan",
+                                "dynamodb:Query",
+                                "dynamodb:BatchGetItem",
+                                "dynamodb:GetItem",
+                                "dynamodb:PutItem",
                             ],
                             "Resource": options.table.arn,
                             "Effect": "Allow"
@@ -69,7 +73,7 @@ export class PostsApi extends Resource {
         const lambda = new aws.LambdaFunction(this, "api", {
             functionName: `sls-example-posts-api-${options.environment}`,
             handler: 'index.handler',
-            runtime: 'nodejs10.x',
+            runtime: 'nodejs14.x',
             role: role.arn,
             filename: code.asset.path,
             sourceCodeHash: code.asset.assetHash,
