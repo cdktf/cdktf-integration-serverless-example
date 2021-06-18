@@ -24,6 +24,7 @@ _(in no particular order)_
 - [ ] Give posts an optional expiration date after which they are deleted (if set). This will probably be implemented using the TTL functionality of DynamoDB (as opposed to a CRON which might have been used for cleanup in a traditional SQL database).
 - [ ] Add a Github action to deploy preview builds to a temporary environment.
 - [ ] Add tests on different levels (unit, integration, end-to-end, visual)
+- [ ] Use [IAM floyd](https://www.npmjs.com/package/iam-floyd) to build IAM policies in a more concise way
 
 ### Workarounds (required currently)
 - cross stack references are defined manually (using Terraform remote state and Terraform outputs)
