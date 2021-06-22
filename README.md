@@ -25,6 +25,7 @@ _(in no particular order)_
 - [ ] Add a Github action to deploy preview builds to a temporary environment.
 - [ ] Add tests on different levels (unit, integration, end-to-end, visual)
 - [ ] Use [IAM floyd](https://www.npmjs.com/package/iam-floyd) to build IAM policies in a more concise way
+- [ ] Check if S3 Bucket could be restricted further. [Related](https://github.com/hashicorp/terraform-cdk/pull/786#issuecomment-864237132)
 
 ### Workarounds (required currently)
 - cross stack references are defined manually (using Terraform remote state and Terraform outputs)
