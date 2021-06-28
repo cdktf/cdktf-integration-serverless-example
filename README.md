@@ -24,6 +24,7 @@ _(in no particular order)_
 - [ ] Give posts an optional expiration date after which they are deleted (if set). This will probably be implemented using the TTL functionality of DynamoDB (as opposed to a CRON which might have been used for cleanup in a traditional SQL database).
 - [ ] Add a Github action to deploy preview builds to a temporary environment.
 - [ ] Add tests on different levels (unit, integration, end-to-end, visual)
+- [ ] Use an [Aspect](https://github.com/aws/constructs/blob/main/API.md#constructs-iaspect) (Visitor pattern) to set the environment prefix on all resources. Possibly also add a test that checks if all resources are covered (e.g. by using a random string and searching for its occurence in resource attributes).
 - [ ] Use [IAM floyd](https://www.npmjs.com/package/iam-floyd) to build IAM policies in a more concise way
 - [ ] Check if S3 Bucket could be restricted further. [Related](https://github.com/hashicorp/terraform-cdk/pull/786#issuecomment-864237132)
 
