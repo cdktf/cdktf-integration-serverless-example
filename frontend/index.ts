@@ -1,7 +1,3 @@
-// stack for infra for statically hosted frontend
-
-// TODO build and deploy frontend
-
 import * as aws from "@cdktf/provider-aws";
 import { Resource, TerraformOutput } from "cdktf";
 import { Construct } from "constructs";
