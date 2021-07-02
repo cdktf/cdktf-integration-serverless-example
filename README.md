@@ -1,5 +1,5 @@
 # CDK for Terraform Serverless application example
-This repo contains an end to end example in TypeScript for a serverless web application hosted on AWS and deployed with the [CDK for Terraform](https://cdk.tf). Please refer to the [guide](https://github.com/hashicorp/terraform-cdk/tree/main/docs/guides) for more information.
+This repo contains an end to end example in TypeScript for a serverless web application hosted on AWS and deployed with the [CDK for Terraform](https://cdk.tf). Please refer to the [guide](https://github.com/hashicorp/terraform-cdk/blob/main/docs/full-guide/serverless-application-typescript.md) for more information.
 ### Techstack
 Frontend: React, Create React App, statically hosted via AWS S3 + CloudFront  
 API: AWS Lambda + API Gateway + DynamoDB  
