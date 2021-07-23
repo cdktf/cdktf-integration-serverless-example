@@ -1,8 +1,10 @@
-*.d.ts
-*.js
+**/*.d.ts
+**/*.js
 node_modules
 cdktf.out
 cdktf.log
 *terraform.*.tfstate*
 .gen
 .terraform
+posts/api/lambda/dist
+posts/api/lambda/node_modules
