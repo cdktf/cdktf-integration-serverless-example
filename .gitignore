@@ -8,3 +8,6 @@ cdktf.log
 .terraform
 posts/api/lambda/dist
 posts/api/lambda/node_modules
+!jest.config.js
+!setup.js
+package-lock.json
