@@ -1,5 +1,5 @@
 import { AwsProvider } from "@cdktf/provider-aws";
-import { App, TerraformStack } from "cdktf";
+import { App, TerraformStack, RemoteBackend } from "cdktf";
 import { Construct } from "constructs";
 import { Frontend } from "./frontend";
 import { Posts } from "./posts";
@@ -87,17 +87,41 @@ if (process.env.PREVIEW_BUILD_IDENTIFIER) {
   const postsDev = new PostsStack(app, "posts-dev", {
     environment: "development",
   });
-  new FrontendStack(app, "frontend-dev", {
+  new RemoteBackend(postsDev, {
+    organization: "cdktf-team",
+    workspaces: {
+      name: "cdktf-e2e-serverless-posts-dev",
+    },
+  });
+  const frontendDev = new FrontendStack(app, "frontend-dev", {
     environment: "development",
     apiEndpoint: postsDev.posts.apiEndpoint,
+  });
+  new RemoteBackend(frontendDev, {
+    organization: "cdktf-team",
+    workspaces: {
+      name: "cdktf-e2e-serverless-frontend-dev",
+    },
   });
   // prod
   const postsProd = new PostsStack(app, "posts-prod", {
     environment: "production",
   });
-  new FrontendStack(app, "frontend-prod", {
+  new RemoteBackend(postsProd, {
+    organization: "cdktf-team",
+    workspaces: {
+      name: "cdktf-e2e-serverless-posts-prod",
+    },
+  });
+  const frontendProd = new FrontendStack(app, "frontend-prod", {
     environment: "production",
     apiEndpoint: postsProd.posts.apiEndpoint,
+  });
+  new RemoteBackend(frontendProd, {
+    organization: "cdktf-team",
+    workspaces: {
+      name: "cdktf-e2e-serverless-frontend-prod",
+    },
   });
 }
 
