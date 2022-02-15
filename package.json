@@ -17,8 +17,9 @@
     "deploy:dev": "cdktf deploy posts-dev && cdktf deploy frontend-dev && yarn deploy:frontend",
     "deploy:prod": "cdktf deploy posts-prod && cdktf deploy frontend-prod && yarn deploy:frontend",
     "deploy:frontend": "yarn workspace frontend run deploy",
-    "destroy:dev": "cdktf destroy frontend-dev && cdktf destroy posts-dev",
-    "destroy:prod": "cdktf destroy frontend-prod && cdktf destroy posts-prod"
+    "destroy:dev": "yarn destroy:frontend && cdktf destroy frontend-dev && cdktf destroy posts-dev",
+    "destroy:prod": "yarn destroy:frontend && cdktf destroy frontend-prod && cdktf destroy posts-prod",
+    "destroy:frontend": "yarn workspace frontend run destroy"
   },
   "engines": {
     "node": ">=10.12"
