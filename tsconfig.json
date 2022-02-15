@@ -6,9 +6,7 @@
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "lib": [
-      "es2018"
-    ],
+    "lib": ["es2018"],
     "module": "CommonJS",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -25,12 +23,6 @@
     "esModuleInterop": true,
     "target": "ES2018"
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "posts/api/lambda",
-    "frontend/code"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "posts/api/lambda", "frontend/code"]
 }

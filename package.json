@@ -14,21 +14,27 @@
     "test": "echo ok",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
-    "deploy": "cdktf deploy",
-    "postdeploy": "yarn workspace frontend run deploy"
+    "deploy:dev": "cdktf deploy posts-dev && cdktf deploy frontend-dev && yarn deploy:frontend",
+    "deploy:prod": "cdktf deploy posts-prod && cdktf deploy frontend-prod && yarn deploy:frontend",
+    "deploy:frontend": "yarn workspace frontend run deploy",
+    "destroy:dev": "yarn destroy:frontend && cdktf destroy frontend-dev && cdktf destroy posts-dev",
+    "destroy:prod": "yarn destroy:frontend && cdktf destroy frontend-prod && cdktf destroy posts-prod",
+    "destroy:frontend": "yarn workspace frontend run destroy"
   },
   "engines": {
     "node": ">=10.12"
   },
   "dependencies": {
-    "@cdktf/provider-aws": "^1.0.80",
-    "cdktf": "^0.4.0",
-    "constructs": "^3.3.75",
-    "cron-time-generator": "^1.2.0",
-    "esbuild": "^0.12.6"
+    "@cdktf/provider-aws": "^5.0.19",
+    "@cdktf/provider-local": "^0.3.21",
+    "cdktf": "^0.9.0",
+    "constructs": "^10.0.63",
+    "cron-time-generator": "^1.3.0",
+    "esbuild": "^0.14.21"
   },
   "devDependencies": {
     "@types/node": "^15.6.2",
+    "ts-node": "^10.5.0",
     "typescript": "^4.3.2"
   },
   "workspaces": {
