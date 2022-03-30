@@ -3,6 +3,7 @@ import { Construct } from "constructs";
 
 interface PostsGeneratorOptions {
   cronPattern: string;
+  userSuffix?: string;
 }
 
 // adds sample posts at certain time (defined via CRON pattern)

@@ -27,6 +27,7 @@ const lambdaRolePolicy = {
 interface PostsApiOptions {
   environment: string;
   table: DynamodbTable;
+  userSuffix?: string;
 }
 
 export class PostsApi extends Resource {
@@ -46,7 +47,7 @@ export class PostsApi extends Resource {
 
     // Create Lambda role
     const role = new IamRole(this, "lambda-exec", {
-      name: `sls-example-post-api-lambda-exec-${options.environment}`,
+      name: `sls-example-post-api-lambda-exec-${options.environment + (options.userSuffix || "")}`,
       assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
       inlinePolicy: [
         {
@@ -80,7 +81,7 @@ export class PostsApi extends Resource {
 
     // Create Lambda function
     const lambda = new LambdaFunction(this, "api", {
-      functionName: `sls-example-posts-api-${options.environment}`,
+      functionName: `sls-example-posts-api-${options.environment + (options.userSuffix || "")}`,
       handler: "index.handler",
       runtime: "nodejs14.x",
       role: role.arn,
@@ -95,7 +96,7 @@ export class PostsApi extends Resource {
 
     // Create and configure API gateway
     const api = new Apigatewayv2Api(this, "api-gw", {
-      name: `sls-example-posts-${options.environment}`,
+      name: `sls-example-posts-${options.environment + (options.userSuffix || "")}`,
       protocolType: "HTTP",
       target: lambda.arn,
       corsConfiguration: {

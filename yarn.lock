@@ -1201,15 +1201,15 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cdktf/provider-aws@^5.0.19":
-  version "5.0.19"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-5.0.19.tgz#ceeaf5d9cd14e35668463967d990c9351d996fd2"
-  integrity sha512-SumpwF6QBpCd12py+LtIEj1pmV1q+Q5NLCNS43r32rEaEjOfENqaRpv+pjP0N3mohcLzFYP0fH2NUVvUfA0OyA==
+"@cdktf/provider-aws@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-7.0.0.tgz#d12198eacbb9debd3391f17ecfb79d38c2d30ad0"
+  integrity sha512-ByTvSOCdyOu8LJ6y0CwgNwhLSHSbzbLNztE8jaR+LA+pDAOgDSJYtPrsmV4lL1SnST7AwIG7jzEf7oHBGQ+dRw==
 
-"@cdktf/provider-local@^0.3.21":
-  version "0.3.21"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-0.3.21.tgz#fb31a737d356e6681b7ca1dd07f2d4ebe6180dba"
-  integrity sha512-G0U9P34Ba79g18cvL/VUumUxNwd1mtpHInhawIGxwJf91ziCXx6RDPQJ1LDX7mSL1pxP0VUpW3erG/x4JUMpbQ==
+"@cdktf/provider-local@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-0.4.0.tgz#7280141b8f9094e16af9454da37f9334771dca75"
+  integrity sha512-oBTcizzJjvStC0AxSG5G2Cu9bK+479NIYubmeHIwbrnWG/PaxLHdpKj+T6sY+1qPopnjZauMgszmM+J0u5VFWA==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -3342,10 +3342,10 @@ case-sensitive-paths-webpack-plugin@2.3.0:
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.3.0.tgz#23ac613cc9a856e4f88ff8bb73bbb5e989825cf7"
   integrity sha512-/4YgnZS8y1UXXmC02xD5rRrBEu6T5ub+mQHLNRj0fzTRbgdBYhsNo2V5EqwgqrExjxsjtF/OpAKAMkKsxbD5XQ==
 
-cdktf@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.9.0.tgz#b0813723eba2ace665b5132cb68fb3cd635bf301"
-  integrity sha512-6zHgGuCd2y3uRjgK303hmpitKEkKdVz/ylSMptzNd9UqU8MZtCY+ky29bUcM0Xpyu01c+JxHK0V+Rr+Q72AZxw==
+cdktf@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.10.0.tgz#c1d5dbe7fc3969ea6030474ccbab5b90616e9811"
+  integrity sha512-F98jj3W2TgPm5StGPfgYfgPwgQk37HREW/6np1AqcDbnYfEEGZhmNKmgokn6edHwMe9kbVyFWl5CA710ktXWmg==
   dependencies:
     archiver "5.3.0"
     json-stable-stringify "^1.0.1"

@@ -4,6 +4,7 @@ import { Construct } from "constructs";
 
 interface PostsStorageOptions {
   environment: string;
+  userSuffix?: string;
 }
 
 export class PostsStorage extends Resource {
@@ -13,7 +14,7 @@ export class PostsStorage extends Resource {
     super(scope, id);
 
     this.table = new aws.DynamodbTable(this, "table", {
-      name: `sls-posts-${options.environment}`,
+      name: `sls-posts-${options.environment + (options.userSuffix || "")}`,
       billingMode: "PAY_PER_REQUEST",
       hashKey: "id",
       rangeKey: "postedAt",
