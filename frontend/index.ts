@@ -1,4 +1,4 @@
-import { S3Bucket, S3BucketPolicy } from "@cdktf/provider-aws/lib/s3";
+import { S3Bucket, S3BucketPolicy, S3BucketWebsiteConfiguration } from "@cdktf/provider-aws/lib/s3";
 import { CloudfrontDistribution } from "@cdktf/provider-aws/lib/cloudfront";
 import { Resource, TerraformOutput } from "cdktf";
 import { Construct } from "constructs";
@@ -18,12 +18,21 @@ export class Frontend extends Resource {
 
     const bucket = new S3Bucket(this, "bucket", {
       bucketPrefix: `sls-example-frontend-${options.environment}`,
-      website: {
-        indexDocument: "index.html",
-        errorDocument: "index.html",
-      },
       tags: {
         "hc-internet-facing": "true", // this is only needed for HashiCorp internal security auditing
+      },
+    });
+
+    // Enable website delivery
+    const bucketWebsite = new S3BucketWebsiteConfiguration(this, "website-configuration", {
+      bucket: bucket.bucket,
+
+      indexDocument: {
+        suffix: "index.html",
+      },
+
+      errorDocument: {
+        key: "index.html", // we could put a static error page here
       },
     });
 
@@ -65,7 +74,7 @@ export class Frontend extends Resource {
       origin: [
         {
           originId: S3_ORIGIN_ID,
-          domainName: bucket.websiteEndpoint,
+          domainName: bucketWebsite.websiteEndpoint,
           customOriginConfig: {
             originProtocolPolicy: "http-only",
             httpPort: 80,

@@ -7,6 +7,7 @@ import { PostsStorage } from "./storage";
 
 interface PostsOptions {
   environment: string;
+  userSuffix?: string;
 }
 
 export class Posts extends Resource {
@@ -17,16 +18,19 @@ export class Posts extends Resource {
 
     const storage = new PostsStorage(this, "storage", {
       environment: options.environment,
+      userSuffix: options.userSuffix,
     });
 
     const postsApi = new PostsApi(this, "api", {
       environment: options.environment,
       table: storage.table,
+      userSuffix: options.userSuffix,
     });
     this.apiEndpoint = postsApi.endpoint;
 
     new PostsGenerator(this, "generator", {
       cronPattern: cronTime.everyDayAt(0, 0),
+      userSuffix: options.userSuffix,
     });
   }
 }
