@@ -25,9 +25,9 @@
     "node": ">=10.12"
   },
   "dependencies": {
-    "@cdktf/provider-aws": "^8.0.0",
-    "@cdktf/provider-local": "^1.0.0",
-    "cdktf": "^0.11.0",
+    "@cdktf/provider-aws": "^9.0.15",
+    "@cdktf/provider-local": "^2.0.34",
+    "cdktf": "^0.12.1",
     "constructs": "^10.0.63",
     "cron-time-generator": "^1.3.0",
     "esbuild": "^0.14.21"
