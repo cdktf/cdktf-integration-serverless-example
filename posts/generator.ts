@@ -1,4 +1,3 @@
-import { Resource } from "cdktf";
 import { Construct } from "constructs";
 
 interface PostsGeneratorOptions {
@@ -7,7 +6,7 @@ interface PostsGeneratorOptions {
 }
 
 // adds sample posts at certain time (defined via CRON pattern)
-export class PostsGenerator extends Resource {
+export class PostsGenerator extends Construct {
   constructor(scope: Construct, id: string, options: PostsGeneratorOptions) {
     super(scope, id);
 

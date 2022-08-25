@@ -1,4 +1,3 @@
-import { Resource } from "cdktf";
 import { NodejsFunction } from "../../lib/nodejs-function";
 import { Construct } from "constructs";
 import { DynamodbTable } from "@cdktf/provider-aws/lib/dynamodb";
@@ -30,7 +29,7 @@ interface PostsApiOptions {
   userSuffix?: string;
 }
 
-export class PostsApi extends Resource {
+export class PostsApi extends Construct {
   /**
    * base url on which the methods of the posts api can be invoked
    * e.g. GET <endpoint>/posts
