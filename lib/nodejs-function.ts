@@ -2,7 +2,7 @@
 // inlined because esbuild is compiled natively and only works on linux for the
 // currently published packages of skorfmann/cdktf-nodejs-function
 import * as path from "path";
-import { Resource, TerraformAsset, AssetType } from "cdktf";
+import { TerraformAsset, AssetType } from "cdktf";
 import { Construct } from "constructs";
 import { buildSync } from "esbuild";
 
@@ -25,7 +25,7 @@ const bundle = (workingDirectory: string, entryPoint: string) => {
   return path.join(workingDirectory, "dist");
 };
 
-export class NodejsFunction extends Resource {
+export class NodejsFunction extends Construct {
   public readonly asset: TerraformAsset;
   public readonly bundledPath: string;
 

@@ -1,4 +1,3 @@
-import { Resource } from "cdktf";
 import { Construct } from "constructs";
 import { PostsApi } from "./api";
 import { PostsGenerator } from "./generator";
@@ -10,7 +9,7 @@ interface PostsOptions {
   userSuffix?: string;
 }
 
-export class Posts extends Resource {
+export class Posts extends Construct {
   apiEndpoint: PostsApi["endpoint"];
 
   constructor(scope: Construct, id: string, options: PostsOptions) {

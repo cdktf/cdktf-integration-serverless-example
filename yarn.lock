@@ -1207,9 +1207,9 @@
   integrity sha512-FDljVJBDeJMjtyxeeEUccwkrlqvpB354QtL3ifEGLozRKiskgpbqZ2vxhH30S0L20/+IR5LI5P1ohacKd9o1WA==
 
 "@cdktf/provider-local@^1.0.0":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-0.5.2.tgz#1f115cfd1a845a895c759a77199c9df94e6cec96"
-  integrity sha512-AmlN79mKHoVDqXwk41krGIHFjBB/VvkGqVdSQtW4HFcJtASNZ1tZ0H21yGkNNXXZiTTjvjen6mlSnzIMTVuCwg==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-1.0.2.tgz#d5aacdde14bfe8c5b83046207faa425ba103af1f"
+  integrity sha512-piSrJ3SkDfdB8WJQ0xDG2dkbgiNqWJBn35NSk+Iyp0q0rXD4lQcoOoMt4Ro9/nMa0tdZe+gY5JYYXAo0cJ1/aw==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"

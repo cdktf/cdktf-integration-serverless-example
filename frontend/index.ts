@@ -1,6 +1,6 @@
 import { S3Bucket, S3BucketPolicy, S3BucketWebsiteConfiguration } from "@cdktf/provider-aws/lib/s3";
 import { CloudfrontDistribution } from "@cdktf/provider-aws/lib/cloudfront";
-import { Resource, TerraformOutput } from "cdktf";
+import { TerraformOutput } from "cdktf";
 import { Construct } from "constructs";
 import { File } from "@cdktf/provider-local";
 import * as path from "path";
@@ -12,7 +12,7 @@ interface FrontendOptions {
   apiEndpoint: string;
 }
 
-export class Frontend extends Resource {
+export class Frontend extends Construct {
   constructor(scope: Construct, id: string, options: FrontendOptions) {
     super(scope, id);
 

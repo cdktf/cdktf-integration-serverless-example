@@ -1,5 +1,4 @@
 import * as aws from "@cdktf/provider-aws/lib/dynamodb";
-import { Resource } from "cdktf";
 import { Construct } from "constructs";
 
 interface PostsStorageOptions {
@@ -7,7 +6,7 @@ interface PostsStorageOptions {
   userSuffix?: string;
 }
 
-export class PostsStorage extends Resource {
+export class PostsStorage extends Construct {
   table: aws.DynamodbTable;
 
   constructor(scope: Construct, id: string, options: PostsStorageOptions) {
