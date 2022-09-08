@@ -1,9 +1,9 @@
-import { AwsProvider } from "@cdktf/provider-aws";
+import { AwsProvider } from './.gen/providers/aws/aws-provider'
 import { App, TerraformStack, RemoteBackend } from "cdktf";
 import { Construct } from "constructs";
 import { Frontend } from "./frontend";
 import { Posts } from "./posts";
-import { LocalProvider } from "@cdktf/provider-local";
+import { LocalProvider } from "./.gen/providers/local/local-provider";
 
 interface EnvironmentOptions {
   environment: "development" | "production";
