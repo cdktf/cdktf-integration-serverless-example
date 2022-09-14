@@ -1,7 +1,7 @@
 {
   "language": "typescript",
   "app": "npx ts-node main.ts",
-  "terraformProviders": [],
+  "terraformProviders": ["aws", "local"],
   "terraformModules": [],
   "context": {
     "excludeStackIdFromLogicalIds": "true",

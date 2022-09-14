@@ -1,4 +1,4 @@
-import * as aws from "@cdktf/provider-aws/lib/dynamodb";
+import * as aws from "../.gen/providers/aws/dynamodb";
 import { Construct } from "constructs";
 
 interface PostsStorageOptions {
