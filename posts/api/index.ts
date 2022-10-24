@@ -3,11 +3,9 @@ import { Construct } from "constructs";
 import { DynamodbTable } from "../../.gen/providers/aws/dynamodb-table";
 import { IamRole } from "../../.gen/providers/aws/iam-role";
 import { IamRolePolicyAttachment } from "../../.gen/providers/aws/iam-role-policy-attachment";
-import {
-  LambdaFunction,
-  LambdaPermission,
-} from "../../.gen/providers/aws/lambdafunction";
-import { Apigatewayv2Api } from "../../.gen/providers/aws/apigatewayv2";
+import { LambdaFunction } from "../../.gen/providers/aws/lambda-function";
+import { LambdaPermission } from "../../.gen/providers/aws/lambda-permission";
+import { Apigatewayv2Api } from "../../.gen/providers/aws/apigatewayv2-api";
 import path = require("path");
 
 const lambdaRolePolicy = {
