@@ -1,7 +1,8 @@
 import { NodejsFunction } from "../../lib/nodejs-function";
 import { Construct } from "constructs";
-import { DynamodbTable } from "../../.gen/providers/aws/dynamodb";
-import { IamRole, IamRolePolicyAttachment } from "../../.gen/providers/aws/iam";
+import { DynamodbTable } from "../../.gen/providers/aws/dynamodb-table";
+import { IamRole } from "../../.gen/providers/aws/iam-role";
+import { IamRolePolicyAttachment } from "../../.gen/providers/aws/iam-role-policy-attachment";
 import {
   LambdaFunction,
   LambdaPermission,
@@ -46,7 +47,9 @@ export class PostsApi extends Construct {
 
     // Create Lambda role
     const role = new IamRole(this, "lambda-exec", {
-      name: `sls-example-post-api-lambda-exec-${options.environment + (options.userSuffix || "")}`,
+      name: `sls-example-post-api-lambda-exec-${
+        options.environment + (options.userSuffix || "")
+      }`,
       assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
       inlinePolicy: [
         {
@@ -80,7 +83,9 @@ export class PostsApi extends Construct {
 
     // Create Lambda function
     const lambda = new LambdaFunction(this, "api", {
-      functionName: `sls-example-posts-api-${options.environment + (options.userSuffix || "")}`,
+      functionName: `sls-example-posts-api-${
+        options.environment + (options.userSuffix || "")
+      }`,
       handler: "index.handler",
       runtime: "nodejs14.x",
       role: role.arn,
@@ -95,7 +100,9 @@ export class PostsApi extends Construct {
 
     // Create and configure API gateway
     const api = new Apigatewayv2Api(this, "api-gw", {
-      name: `sls-example-posts-${options.environment + (options.userSuffix || "")}`,
+      name: `sls-example-posts-${
+        options.environment + (options.userSuffix || "")
+      }`,
       protocolType: "HTTP",
       target: lambda.arn,
       corsConfiguration: {

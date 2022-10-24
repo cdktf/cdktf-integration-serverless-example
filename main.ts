@@ -1,9 +1,9 @@
-import { AwsProvider } from './.gen/providers/aws/aws-provider'
+import { AwsProvider } from "./.gen/providers/aws/provider";
 import { App, TerraformStack, RemoteBackend } from "cdktf";
 import { Construct } from "constructs";
 import { Frontend } from "./frontend";
 import { Posts } from "./posts";
-import { LocalProvider } from "./.gen/providers/local/local-provider";
+import { LocalProvider } from "./.gen/providers/local/provider";
 
 interface EnvironmentOptions {
   environment: "development" | "production";
@@ -90,7 +90,7 @@ if (process.env.PREVIEW_BUILD_IDENTIFIER) {
   // dev
   const postsDev = new PostsStack(app, "posts-dev", {
     environment: "development",
-    user: process.env.CDKTF_USER
+    user: process.env.CDKTF_USER,
   });
   if (USE_REMOTE_BACKEND) {
     new RemoteBackend(postsDev, {
@@ -103,7 +103,6 @@ if (process.env.PREVIEW_BUILD_IDENTIFIER) {
   const frontendDev = new FrontendStack(app, "frontend-dev", {
     environment: "development",
     apiEndpoint: postsDev.posts.apiEndpoint,
-    
   });
   if (USE_REMOTE_BACKEND) {
     new RemoteBackend(frontendDev, {
