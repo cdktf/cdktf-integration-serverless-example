@@ -1,4 +1,4 @@
-import { DynamodbTable } from "../.gen/providers/aws/dynamodb-table";
+import { DynamodbTable } from "@cdktf/provider-aws/lib/dynamodb-table";
 import { Construct } from "constructs";
 
 interface PostsStorageOptions {

@@ -1,10 +1,10 @@
-import { S3Bucket } from "../.gen/providers/aws/s3-bucket";
-import { S3BucketPolicy } from "../.gen/providers/aws/s3-bucket-policy";
-import { S3BucketWebsiteConfiguration } from "../.gen/providers/aws/s3-bucket-website-configuration";
-import { CloudfrontDistribution } from "../.gen/providers/aws/cloudfront-distribution";
+import { S3Bucket } from "@cdktf/provider-aws/lib/s3-bucket";
+import { S3BucketPolicy } from "@cdktf/provider-aws/lib/s3-bucket-policy";
+import { S3BucketWebsiteConfiguration } from "@cdktf/provider-aws/lib/s3-bucket-website-configuration";
+import { CloudfrontDistribution } from "@cdktf/provider-aws/lib/cloudfront-distribution";
 import { TerraformOutput } from "cdktf";
 import { Construct } from "constructs";
-import { File } from "../.gen/providers/local/file";
+import { File } from "@cdktf/provider-local/lib/file";
 import * as path from "path";
 
 const S3_ORIGIN_ID = "s3Origin";

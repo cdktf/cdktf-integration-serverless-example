@@ -1,11 +1,11 @@
 import { NodejsFunction } from "../../lib/nodejs-function";
 import { Construct } from "constructs";
-import { DynamodbTable } from "../../.gen/providers/aws/dynamodb-table";
-import { IamRole } from "../../.gen/providers/aws/iam-role";
-import { IamRolePolicyAttachment } from "../../.gen/providers/aws/iam-role-policy-attachment";
-import { LambdaFunction } from "../../.gen/providers/aws/lambda-function";
-import { LambdaPermission } from "../../.gen/providers/aws/lambda-permission";
-import { Apigatewayv2Api } from "../../.gen/providers/aws/apigatewayv2-api";
+import { DynamodbTable } from "@cdktf/provider-aws/lib/dynamodb-table";
+import { IamRole } from "@cdktf/provider-aws/lib/iam-role";
+import { IamRolePolicyAttachment } from "@cdktf/provider-aws/lib/iam-role-policy-attachment";
+import { LambdaFunction } from "@cdktf/provider-aws/lib/lambda-function";
+import { LambdaPermission } from "@cdktf/provider-aws/lib/lambda-permission";
+import { Apigatewayv2Api } from "@cdktf/provider-aws/lib/apigatewayv2-api";
 import path = require("path");
 
 const lambdaRolePolicy = {
