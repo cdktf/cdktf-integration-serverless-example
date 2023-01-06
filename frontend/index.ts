@@ -1,8 +1,10 @@
-import { S3Bucket, S3BucketPolicy, S3BucketWebsiteConfiguration } from "@cdktf/provider-aws/lib/s3";
-import { CloudfrontDistribution } from "@cdktf/provider-aws/lib/cloudfront";
+import { S3Bucket } from "../.gen/providers/aws/s3-bucket";
+import { S3BucketPolicy } from "../.gen/providers/aws/s3-bucket-policy";
+import { S3BucketWebsiteConfiguration } from "../.gen/providers/aws/s3-bucket-website-configuration";
+import { CloudfrontDistribution } from "../.gen/providers/aws/cloudfront-distribution";
 import { TerraformOutput } from "cdktf";
 import { Construct } from "constructs";
-import { File } from "@cdktf/provider-local";
+import { File } from "../.gen/providers/local/file";
 import * as path from "path";
 
 const S3_ORIGIN_ID = "s3Origin";
@@ -24,17 +26,21 @@ export class Frontend extends Construct {
     });
 
     // Enable website delivery
-    const bucketWebsite = new S3BucketWebsiteConfiguration(this, "website-configuration", {
-      bucket: bucket.bucket,
+    const bucketWebsite = new S3BucketWebsiteConfiguration(
+      this,
+      "website-configuration",
+      {
+        bucket: bucket.bucket,
 
-      indexDocument: {
-        suffix: "index.html",
-      },
+        indexDocument: {
+          suffix: "index.html",
+        },
 
-      errorDocument: {
-        key: "index.html", // we could put a static error page here
-      },
-    });
+        errorDocument: {
+          key: "index.html", // we could put a static error page here
+        },
+      }
+    );
 
     new S3BucketPolicy(this, "s3_policy", {
       bucket: bucket.id,

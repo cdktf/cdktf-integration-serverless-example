@@ -1,12 +1,11 @@
 import { NodejsFunction } from "../../lib/nodejs-function";
 import { Construct } from "constructs";
-import { DynamodbTable } from "@cdktf/provider-aws/lib/dynamodb";
-import { IamRole, IamRolePolicyAttachment } from "@cdktf/provider-aws/lib/iam";
-import {
-  LambdaFunction,
-  LambdaPermission,
-} from "@cdktf/provider-aws/lib/lambdafunction";
-import { Apigatewayv2Api } from "@cdktf/provider-aws/lib/apigatewayv2";
+import { DynamodbTable } from "../../.gen/providers/aws/dynamodb-table";
+import { IamRole } from "../../.gen/providers/aws/iam-role";
+import { IamRolePolicyAttachment } from "../../.gen/providers/aws/iam-role-policy-attachment";
+import { LambdaFunction } from "../../.gen/providers/aws/lambda-function";
+import { LambdaPermission } from "../../.gen/providers/aws/lambda-permission";
+import { Apigatewayv2Api } from "../../.gen/providers/aws/apigatewayv2-api";
 import path = require("path");
 
 const lambdaRolePolicy = {
@@ -46,7 +45,9 @@ export class PostsApi extends Construct {
 
     // Create Lambda role
     const role = new IamRole(this, "lambda-exec", {
-      name: `sls-example-post-api-lambda-exec-${options.environment + (options.userSuffix || "")}`,
+      name: `sls-example-post-api-lambda-exec-${
+        options.environment + (options.userSuffix || "")
+      }`,
       assumeRolePolicy: JSON.stringify(lambdaRolePolicy),
       inlinePolicy: [
         {
@@ -80,7 +81,9 @@ export class PostsApi extends Construct {
 
     // Create Lambda function
     const lambda = new LambdaFunction(this, "api", {
-      functionName: `sls-example-posts-api-${options.environment + (options.userSuffix || "")}`,
+      functionName: `sls-example-posts-api-${
+        options.environment + (options.userSuffix || "")
+      }`,
       handler: "index.handler",
       runtime: "nodejs14.x",
       role: role.arn,
@@ -95,7 +98,9 @@ export class PostsApi extends Construct {
 
     // Create and configure API gateway
     const api = new Apigatewayv2Api(this, "api-gw", {
-      name: `sls-example-posts-${options.environment + (options.userSuffix || "")}`,
+      name: `sls-example-posts-${
+        options.environment + (options.userSuffix || "")
+      }`,
       protocolType: "HTTP",
       target: lambda.arn,
       corsConfiguration: {

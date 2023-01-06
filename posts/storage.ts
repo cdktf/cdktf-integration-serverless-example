@@ -1,4 +1,4 @@
-import * as aws from "@cdktf/provider-aws/lib/dynamodb";
+import { DynamodbTable } from "../.gen/providers/aws/dynamodb-table";
 import { Construct } from "constructs";
 
 interface PostsStorageOptions {
@@ -7,12 +7,12 @@ interface PostsStorageOptions {
 }
 
 export class PostsStorage extends Construct {
-  table: aws.DynamodbTable;
+  table: DynamodbTable;
 
   constructor(scope: Construct, id: string, options: PostsStorageOptions) {
     super(scope, id);
 
-    this.table = new aws.DynamodbTable(this, "table", {
+    this.table = new DynamodbTable(this, "table", {
       name: `sls-posts-${options.environment + (options.userSuffix || "")}`,
       billingMode: "PAY_PER_REQUEST",
       hashKey: "id",
