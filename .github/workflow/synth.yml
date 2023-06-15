@@ -4,8 +4,13 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+      - reopened
 
 jobs:
   synth:
