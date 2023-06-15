@@ -1,0 +1,31 @@
+name: Synth
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+      - reopened
+  workflow_dispatch: {}
+
+jobs:
+  synth:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.mirror.hashicorp.services/hashicorp/jsii-terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - name: "Add Git safe.directory" # Go 1.18+ started embedding repo info in the build and e.g. building @cdktf/hcl2json fails without this
+        run: git config --global --add safe.directory /__w/terraform-cdk/terraform-cdk
+      - name: ensure correct user
+        run: chown -R root /__w/terraform-cdk
+      - name: Install dependencies
+        run: yarn
+      - name: Synth
+        run: yarn get && yarn synth
