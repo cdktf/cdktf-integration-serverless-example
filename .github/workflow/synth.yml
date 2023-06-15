@@ -11,6 +11,7 @@ on:
       - labeled
       - unlabeled
       - reopened
+  workflow_dispatch: {}
 
 jobs:
   synth:
