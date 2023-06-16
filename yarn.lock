@@ -1267,6 +1267,11 @@
   resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-12.0.0.tgz#c4ae8700d050430a835739d4923e7d94315eef9c"
   integrity sha512-tCIgjR/vJcMyuiR1ms+KTZoBNK9xaRTrjKcbY2+sLnZx8QzQYcCuQN6M9QbYTE/h+ue65y0LK1VEoopLt790hQ==
 
+"@cdktf/provider-aws@^15.0.0":
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-15.0.0.tgz#7a4072003a50ddc4727199eccd1f22d6c18e8da2"
+  integrity sha512-GeXpsU8+TsXhFFowjos+7bYv2CDAMHjOlKxXTx6aaqEO7BTlyqXBM/Qetw6y/6MxwIcyEf5siduBeT6T3lg3Dg==
+
 "@cdktf/provider-generator@0.17.0":
   version "0.17.0"
   resolved "https://registry.yarnpkg.com/@cdktf/provider-generator/-/provider-generator-0.17.0.tgz#46b3b7460aa5dde7d31cc0ea654ea121c7d6295c"
@@ -1284,6 +1289,11 @@
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-5.0.0.tgz#b70f97a8c2f5e0fde458c788369f7ef4197cbb18"
   integrity sha512-8qleqjjZwepl8H78XpjAqUNG1LgCeqOFXBx8gHPsbVmy4DKJx7uEO/XXNp+SnHLPGUjBUdfpWeKT/F7ZivM5fA==
+
+"@cdktf/provider-local@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-7.0.0.tgz#5613775a3ae0d120571c07ae0a5892f657370c9a"
+  integrity sha512-WblWcRafPomUy/9muqamtlKYpjTOUftMJ65Svt7Vqxsuassw8KGWj2OtyRVAZSi3+hk69BEUWIrPmgr/VvZ6fQ==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"

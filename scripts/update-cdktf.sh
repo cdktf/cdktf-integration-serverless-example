@@ -9,4 +9,4 @@ echo "Updating to cdktf version $CDKTF_VERSION"
 cd $PROJECT_ROOT
 
 yarn add -D -W cdktf-cli@$CDKTF_VERSION
-yarn add -W cdktf@$CDKTF_VERSION
+yarn add -W cdktf@$CDKTF_VERSION @cdktf/provider-aws@latest @cdktf/provider-local@latest
