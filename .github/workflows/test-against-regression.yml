@@ -1,0 +1,31 @@
+name: Test Against Regression
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+      - reopened
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: docker.mirror.hashicorp.services/hashicorp/jsii-terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+      - name: ensure correct user
+        run: chown -R root /__w/cdktf-integration-serverless-example/
+      - name: Install Dependencies
+        run: yarn 
+      - name: Generate Provider Bindings
+        run: yarn get
+      - name: Test
+        run: yarn test

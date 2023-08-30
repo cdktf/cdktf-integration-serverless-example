@@ -1,0 +1,23 @@
+name: automerge
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - ready_for_review
+      - reopened
+      - synchronize
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: contains(github.event.pull_request.labels.*.name, 'automerge') && github.event.pull_request.draft == false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - name: Turn on automerge for this PR
+        run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
+        env:
+          GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
