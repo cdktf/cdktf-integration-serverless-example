@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/"
+    schedule:
+        interval: "weekly"
+    labels:
+        - "dependencies"
+        - "automerge"
+        - "auto-approve"
+    open-pull-requests-limit: 5
+    ignore:
+        - dependency-name: "@types/node"
+    groups:
+        cdktf:
+            patterns:
+                - "cdktf"
+                - "cdktf-cli"
+                - "@cdktf/*"
+        jest:
+            patterns:
+                - "jest"
+                - "ts-jest"
+                - "@types/jest"
+                - "@jest/*"
+                
+        
+        
+    

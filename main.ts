@@ -16,7 +16,7 @@ interface FrontendStackOptions extends EnvironmentOptions {
   apiEndpoint: string;
 }
 
-class FrontendStack extends TerraformStack {
+export class FrontendStack extends TerraformStack {
   constructor(
     scope: Construct,
     name: string,
@@ -33,7 +33,7 @@ class FrontendStack extends TerraformStack {
   }
 }
 
-class PostsStack extends TerraformStack {
+export class PostsStack extends TerraformStack {
   public posts: Posts;
 
   constructor(

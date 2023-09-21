@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests against regression of synth output has no change in FrontendStack Configuration 1`] = `
+"{
+  "output": {
+    "frontend_frontend_domainname_0AC0A4F3": {
+      "value": "https://\${aws_cloudfront_distribution.frontend_cf_6C82FC12.domain_name}"
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-central-1"
+      }
+    ],
+    "local": [
+      {}
+    ]
+  },
+  "resource": {
+    "aws_cloudfront_distribution": {
+      "frontend_cf_6C82FC12": {
+        "comment": "Serverless example frontend for env=development",
+        "default_cache_behavior": {
+          "allowed_methods": [
+            "DELETE",
+            "GET",
+            "HEAD",
+            "OPTIONS",
+            "PATCH",
+            "POST",
+            "PUT"
+          ],
+          "cached_methods": [
+            "GET",
+            "HEAD"
+          ],
+          "forwarded_values": {
+            "cookies": {
+              "forward": "none"
+            },
+            "query_string": false
+          },
+          "target_origin_id": "s3Origin",
+          "viewer_protocol_policy": "redirect-to-https"
+        },
+        "default_root_object": "index.html",
+        "enabled": true,
+        "origin": [
+          {
+            "custom_origin_config": {
+              "http_port": 80,
+              "https_port": 443,
+              "origin_protocol_policy": "http-only",
+              "origin_ssl_protocols": [
+                "TLSv1.2",
+                "TLSv1.1",
+                "TLSv1"
+              ]
+            },
+            "domain_name": "\${aws_s3_bucket_website_configuration.frontend_website-configuration_53A72F76.website_endpoint}",
+            "origin_id": "s3Origin"
+          }
+        ],
+        "restrictions": {
+          "geo_restriction": {
+            "restriction_type": "none"
+          }
+        },
+        "viewer_certificate": {
+          "cloudfront_default_certificate": true
+        }
+      }
+    },
+    "aws_s3_bucket": {
+      "frontend_bucket_EFDC2F3F": {
+        "bucket_prefix": "sls-example-frontend-development",
+        "tags": {
+          "hc-internet-facing": "true"
+        }
+      }
+    },
+    "aws_s3_bucket_policy": {
+      "frontend_s3_policy_42C30805": {
+        "bucket": "\${aws_s3_bucket.frontend_bucket_EFDC2F3F.id}",
+        "policy": "{\\"Version\\":\\"2012-10-17\\",\\"Id\\":\\"PolicyForWebsiteEndpointsPublicContent\\",\\"Statement\\":[{\\"Sid\\":\\"PublicRead\\",\\"Effect\\":\\"Allow\\",\\"Principal\\":\\"*\\",\\"Action\\":[\\"s3:GetObject\\"],\\"Resource\\":[\\"\${aws_s3_bucket.frontend_bucket_EFDC2F3F.arn}/*\\",\\"\${aws_s3_bucket.frontend_bucket_EFDC2F3F.arn}\\"]}]}"
+      }
+    },
+    "aws_s3_bucket_website_configuration": {
+      "frontend_website-configuration_53A72F76": {
+        "bucket": "\${aws_s3_bucket.frontend_bucket_EFDC2F3F.bucket}",
+        "error_document": {
+          "key": "index.html"
+        },
+        "index_document": {
+          "suffix": "index.html"
+        }
+      }
+    },
+    "local_file": {
+      "frontend_env_FADFC9DB": {
+        "content": "S3_BUCKET_FRONTEND=\${aws_s3_bucket.frontend_bucket_EFDC2F3F.bucket}\\nREACT_APP_API_ENDPOINT=N/A",
+        "filename": "/__w/cdktf-integration-serverless-example/cdktf-integration-serverless-example/frontend/code/.env.production.local"
+      }
+    }
+  }
+}"
+`;
+
+exports[`Tests against regression of synth output has no change in PostsStack Configuration 1`] = `
+"{
+  "provider": {
+    "aws": [
+      {
+        "region": "eu-central-1"
+      }
+    ]
+  },
+  "resource": {
+    "aws_apigatewayv2_api": {
+      "posts_api_api-gw_B6634897": {
+        "cors_configuration": {
+          "allow_headers": [
+            "content-type"
+          ],
+          "allow_methods": [
+            "*"
+          ],
+          "allow_origins": [
+            "*"
+          ]
+        },
+        "name": "sls-example-posts-developmentregression-test",
+        "protocol_type": "HTTP",
+        "target": "\${aws_lambda_function.posts_api_7D5242CA.arn}"
+      }
+    },
+    "aws_dynamodb_table": {
+      "posts_storage_table_50F8EECB": {
+        "attribute": [
+          {
+            "name": "id",
+            "type": "S"
+          },
+          {
+            "name": "postedAt",
+            "type": "S"
+          }
+        ],
+        "billing_mode": "PAY_PER_REQUEST",
+        "hash_key": "id",
+        "name": "sls-posts-developmentregression-test",
+        "range_key": "postedAt"
+      }
+    },
+    "aws_iam_role": {
+      "posts_api_lambda-exec_B42627E0": {
+        "assume_role_policy": "{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Action\\":\\"sts:AssumeRole\\",\\"Principal\\":{\\"Service\\":\\"lambda.amazonaws.com\\"},\\"Effect\\":\\"Allow\\",\\"Sid\\":\\"\\"}]}",
+        "inline_policy": [
+          {
+            "name": "AllowDynamoDB",
+            "policy": "{\\"Version\\":\\"2012-10-17\\",\\"Statement\\":[{\\"Action\\":[\\"dynamodb:Scan\\",\\"dynamodb:Query\\",\\"dynamodb:BatchGetItem\\",\\"dynamodb:GetItem\\",\\"dynamodb:PutItem\\"],\\"Resource\\":\\"\${aws_dynamodb_table.posts_storage_table_50F8EECB.arn}\\",\\"Effect\\":\\"Allow\\"}]}"
+          }
+        ],
+        "name": "sls-example-post-api-lambda-exec-developmentregression-test"
+      }
+    },
+    "aws_iam_role_policy_attachment": {
+      "posts_api_lambda-managed-policy_460C9C52": {
+        "policy_arn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+        "role": "\${aws_iam_role.posts_api_lambda-exec_B42627E0.name}"
+      }
+    },
+    "aws_lambda_function": {
+      "posts_api_7D5242CA": {
+        "environment": {
+          "variables": {
+            "DYNAMODB_TABLE_NAME": "\${aws_dynamodb_table.posts_storage_table_50F8EECB.name}"
+          }
+        },
+        "filename": "assets/posts_api_code_lambda-asset_7F9E9FED/DBE027F5FDF3501622AD4026303E8B47/archive.zip",
+        "function_name": "sls-example-posts-api-developmentregression-test",
+        "handler": "index.handler",
+        "role": "\${aws_iam_role.posts_api_lambda-exec_B42627E0.arn}",
+        "runtime": "nodejs14.x",
+        "source_code_hash": "DBE027F5FDF3501622AD4026303E8B47"
+      }
+    },
+    "aws_lambda_permission": {
+      "posts_api_apigw-lambda_02C673B9": {
+        "action": "lambda:InvokeFunction",
+        "function_name": "\${aws_lambda_function.posts_api_7D5242CA.function_name}",
+        "principal": "apigateway.amazonaws.com",
+        "source_arn": "\${aws_apigatewayv2_api.posts_api_api-gw_B6634897.execution_arn}/*/*"
+      }
+    }
+  }
+}"
+`;
