@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { v4 as uuidv4 } from "uuid";
 import { Table, Entity } from "dynamodb-toolbox";
 import DynamoDB from "aws-sdk/clients/dynamodb";
