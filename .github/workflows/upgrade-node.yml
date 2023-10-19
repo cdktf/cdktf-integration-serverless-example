@@ -1,9 +1,3 @@
-# NOTE: Before adding this workflow (or as part of the same commit/PR), please copy the following script into your project:
-# https://github.com/hashicorp/cdktf-aws-cdk/blob/main/scripts/check-node-versions.js
-# Make sure it either stays located at `scripts/check-node-versions.js` or update the path in this workflow
-# 
-# By default, PRs will be created by github-actions[bot] - you can change this by using a different token at the end
-
 name: upgrade-node
 on:
   schedule:
