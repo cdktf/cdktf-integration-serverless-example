@@ -100,7 +100,7 @@ exports[`Tests against regression of synth output has no change in FrontendStack
     "local_file": {
       "frontend_env_FADFC9DB": {
         "content": "S3_BUCKET_FRONTEND=\${aws_s3_bucket.frontend_bucket_EFDC2F3F.bucket}\\nREACT_APP_API_ENDPOINT=N/A",
-        "filename": "/Users/narakwon/Code/cdktf-integration-serverless-example/frontend/code/.env.production.local"
+        "filename": "/__w/cdktf-integration-serverless-example/cdktf-integration-serverless-example/frontend/code/.env.production.local"
       }
     }
   }
