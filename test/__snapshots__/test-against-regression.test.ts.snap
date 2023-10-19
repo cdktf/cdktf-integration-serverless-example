@@ -100,7 +100,7 @@ exports[`Tests against regression of synth output has no change in FrontendStack
     "local_file": {
       "frontend_env_FADFC9DB": {
         "content": "S3_BUCKET_FRONTEND=\${aws_s3_bucket.frontend_bucket_EFDC2F3F.bucket}\\nREACT_APP_API_ENDPOINT=N/A",
-        "filename": "/__w/cdktf-integration-serverless-example/cdktf-integration-serverless-example/frontend/code/.env.production.local"
+        "filename": "/Users/narakwon/Code/cdktf-integration-serverless-example/frontend/code/.env.production.local"
       }
     }
   }
@@ -178,12 +178,12 @@ exports[`Tests against regression of synth output has no change in PostsStack Co
             "DYNAMODB_TABLE_NAME": "\${aws_dynamodb_table.posts_storage_table_50F8EECB.name}"
           }
         },
-        "filename": "assets/posts_api_code_lambda-asset_7F9E9FED/DBE027F5FDF3501622AD4026303E8B47/archive.zip",
+        "filename": "assets/posts_api_code_lambda-asset_7F9E9FED/CEEC012766ACC4C98FC6DA6875DA43EF/archive.zip",
         "function_name": "sls-example-posts-api-developmentregression-test",
         "handler": "index.handler",
         "role": "\${aws_iam_role.posts_api_lambda-exec_B42627E0.arn}",
         "runtime": "nodejs14.x",
-        "source_code_hash": "DBE027F5FDF3501622AD4026303E8B47"
+        "source_code_hash": "CEEC012766ACC4C98FC6DA6875DA43EF"
       }
     },
     "aws_lambda_permission": {
