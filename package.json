@@ -22,7 +22,7 @@
     "destroy:frontend": "yarn workspace frontend run destroy"
   },
   "engines": {
-    "node": ">=10.12"
+    "node": ">= 10.12"
   },
   "dependencies": {
     "@cdktf/provider-aws": "^17.0.11",
