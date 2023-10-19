@@ -1,6 +1,6 @@
 name: automerge
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - labeled
@@ -13,18 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: write
     if: contains(github.event.pull_request.labels.*.name, 'automerge') && github.event.pull_request.draft == false
     steps:
       - name: Checkout
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-      - name: Turn on automerge for this PR by Dependabot
-        if: github.actor == 'dependabot[bot]'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
-      - name: Turn on automerge for this PR by users other than Dependabot
-        if: github.actor != 'dependabot[bot]'
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
+      - name: Turn on automerge for this PR by trusted users
+        if: contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association) || github.actor == 'dependabot[bot]'
         env:
           GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
         run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
