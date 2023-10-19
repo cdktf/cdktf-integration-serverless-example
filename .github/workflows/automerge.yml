@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - name: Turn on automerge for this PR by trusted users
-        if: contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association) || github.actor == 'dependabot[bot]'
+        if: github.event.pull_request.user.login == 'team-tf-cdk' || contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association) || github.actor == 'dependabot[bot]'
         env:
           GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
         run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
