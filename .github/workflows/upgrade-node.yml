@@ -1,0 +1,66 @@
+# NOTE: Before adding this workflow (or as part of the same commit/PR), please copy the following script into your project:
+# https://github.com/hashicorp/cdktf-aws-cdk/blob/main/scripts/check-node-versions.js
+# Make sure it either stays located at `scripts/check-node-versions.js` or update the path in this workflow
+# 
+# By default, PRs will be created by github-actions[bot] - you can change this by using a different token at the end
+
+name: upgrade-node
+on:
+  schedule:
+    - cron: '20 5 * * *'
+  workflow_dispatch: {}
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  upgrade:
+    name: Upgrade Node.js
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - name: Install
+        run: yarn install
+      - name: Get current Node.js version
+        id: current_version
+        run: |-
+          ENGINES_NODE_VERSION=$(npm pkg get engines.node | tr -d '"')
+          CURRENT_VERSION=$(cut -d " " -f 2 <<< "$ENGINES_NODE_VERSION")
+          CURRENT_VERSION_SHORT=$(cut -d "." -f 1 <<< "$CURRENT_VERSION")
+          echo "CURRENT_NODEJS_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+          echo "CURRENT_NODEJS_VERSION_SHORT=$CURRENT_VERSION_SHORT" >> $GITHUB_ENV
+          echo "value=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "short=$CURRENT_VERSION_SHORT" >> $GITHUB_OUTPUT
+      - name: Get the earliest supported Node.js version whose EOL date is at least a month away
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+        with:
+          script: |-
+            const script = require('./.github/scripts/check-node-versions.js')
+            await script({github, context, core})
+      - name: Update the package with the new minimum Node version and update @types/node
+        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        run: |-
+          npm pkg set engines.node=">= $NEW_NODEJS_VERSION"
+          yarn add -D @types/node@^$NEW_NODEJS_VERSION_SHORT
+      # If there are other steps you need to take in your project to update Node.js everywhere, add those here
+      - name: Get values for pull request
+        id: latest_version
+        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        run: |-
+          echo "value=$NEW_NODEJS_VERSION" >> $GITHUB_OUTPUT
+          echo "short=$NEW_NODEJS_VERSION_SHORT" >> $GITHUB_OUTPUT
+      - name: Create Pull Request
+        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        uses: peter-evans/create-pull-request@284f54f989303d2699d373481a0cfa13ad5a6666 # v5.0.1
+        with:
+          commit-message: "chore!: increase minimum supported Node.js version to ${{ steps.latest_version.outputs.short }}"
+          branch: auto/upgrade-node-${{ steps.latest_version.outputs.short }}
+          base: main
+          title: "chore!: increase minimum supported Node.js version to ${{ steps.latest_version.outputs.short }}"
+          body: This PR increases the minimum supported Node.js version to `${{ steps.latest_version.outputs.value }}` from `${{ steps.current_version.outputs.value }}` because version ${{ steps.current_version.outputs.short }} is less than 30 days away from EOL.
+          labels: automerge,automated,security
+          token: ${{ secrets.TEAM_TF_CDK }}
+          author: team-tf-cdk <github-team-tf-cdk@hashicorp.com>
+          committer: team-tf-cdk <github-team-tf-cdk@hashicorp.com>
+          signoff: true
+          delete-branch: true
