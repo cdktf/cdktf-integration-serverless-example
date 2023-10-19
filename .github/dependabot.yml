@@ -3,27 +3,40 @@ updates:
   - package-ecosystem: "npm" 
     directory: "/"
     schedule:
-        interval: "weekly"
+      interval: "weekly"
     labels:
-        - "dependencies"
-        - "automerge"
-        - "auto-approve"
+      - "dependencies"
+      - "automerge"
+      - "auto-approve"
     open-pull-requests-limit: 5
     ignore:
-        - dependency-name: "@types/node"
+      - dependency-name: "@types/node"
+      # For providers, ignore all patch updates for version updates only
+      - dependency-name: "@cdktf/provider-aws"
+        update-types: ["version-update:semver-patch"]
+      - dependency-name: "@cdktf/provider-local"
+        update-types: ["version-update:semver-patch"]
     groups:
-        cdktf:
-            patterns:
-                - "cdktf"
-                - "cdktf-cli"
-                - "@cdktf/*"
-        jest:
-            patterns:
-                - "jest"
-                - "ts-jest"
-                - "@types/jest"
-                - "@jest/*"
-                
-        
-        
-    
+      cdktf:
+        patterns:
+          - "cdktf"
+          - "cdktf-cli"
+          - "@cdktf/*"
+      jest:
+        patterns:
+          - "jest"
+          - "ts-jest"
+          - "@types/jest"
+          - "@jest/*"
+  - package-ecosystem: npm
+    versioning-strategy: lockfile-only
+    directory: /frontend/code
+    schedule:
+      interval: daily
+    labels:
+      - auto-approve
+      - automerge
+      - dependencies
+      - security
+    # Disable version updates for npm dependencies, only use Dependabot for security updates
+    open-pull-requests-limit: 0    
