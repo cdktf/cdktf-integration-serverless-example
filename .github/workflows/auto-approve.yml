@@ -1,6 +1,6 @@
 name: auto-approve
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - labeled
@@ -16,17 +16,17 @@ jobs:
     if: contains(github.event.pull_request.labels.*.name, 'auto-approve') && github.event.pull_request.draft == false
     steps:
       - name: Checkout PR
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
       - name: Auto-approve PRs by other users as team-tf-cdk
-        if: github.event.pull_request.user.login != 'team-tf-cdk' && github.actor != 'dependabot[bot]'
+        if: github.event.pull_request.user.login != 'team-tf-cdk' && (contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association) || github.actor == 'dependabot[bot]')
         env:
           GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
         run: gh pr review ${{ github.event.pull_request.number }} --approve
-      - name: Auto-approve PRs by team-tf-cdk or Dependabot as github-actions[bot]
-        if: github.event.pull_request.user.login == 'team-tf-cdk' || github.actor == 'dependabot[bot]'
+      - name: Auto-approve PRs by team-tf-cdk as github-actions[bot]
+        if: github.event.pull_request.user.login == 'team-tf-cdk'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr review ${{ github.event.pull_request.number }} --approve
