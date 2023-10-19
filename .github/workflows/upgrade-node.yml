@@ -34,7 +34,7 @@ jobs:
       - name: Update the package with the new minimum Node version and update @types/node
         if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
         run: |-
-          npm pkg set engines.node=">= $NEW_NODEJS_VERSION"
+          npm pkg set engines.node=">= $NEW_NODEJS_VERSION" --workspace=.
           yarn add -W -D @types/node@^$NEW_NODEJS_VERSION_SHORT
       # If there are other steps you need to take in your project to update Node.js everywhere, add those here
       - name: Get values for pull request
