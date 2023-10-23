@@ -8,7 +8,7 @@
     "compile": "tsc"
   },
   "dependencies": {
-    "aws-sdk": "^2.926.0",
+    "aws-sdk": "^2.1478.0",
     "dynamodb-toolbox": "^0.3.4",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2"
