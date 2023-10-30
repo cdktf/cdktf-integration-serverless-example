@@ -4936,10 +4936,10 @@ constants-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha512-xFxOwqIzR/e1k1gLiWEophSCMqXcwVHIH7akf7b/vxcUeGunlj3hvZaaqxwHsTgn+IndtkQJgSztIDWeumWJDQ==
 
-constructs@^10.0.25, constructs@^10.0.63:
-  version "10.2.52"
-  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.2.52.tgz#2b376e6457a9520ad99ca5624cdc56b102f853d0"
-  integrity sha512-+agHle0qck/Z2ARWtI8WpAiFzBFweti2ai03ShK3R708WTmny+HO97joPQ99oQQvmHaAgCZmAqEUufeySk9J0Q==
+constructs@^10.0.25, constructs@^10.3.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.3.0.tgz#4c246fce9cf8e77711ad45944e9fbd41f1501965"
+  integrity sha512-vbK8i3rIb/xwZxSpTjz3SagHn1qq9BChLEfy5Hf6fB3/2eFbrwt2n9kHwQcS0CPTRBesreeAcsJfMq2229FnbQ==
 
 content-disposition@0.5.4:
   version "0.5.4"
