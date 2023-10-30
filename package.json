@@ -28,7 +28,7 @@
     "@cdktf/provider-aws": "^18.0.0",
     "@cdktf/provider-local": "^9.0.0",
     "cdktf": "0.19.0",
-    "constructs": "^10.0.63",
+    "constructs": "^10.3.0",
     "cron-time-generator": "^2.0.1",
     "esbuild": "^0.19.5"
   },
