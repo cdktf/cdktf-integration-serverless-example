@@ -39,4 +39,15 @@ updates:
       - dependencies
       - security
     # Disable version updates for npm dependencies, only use Dependabot for security updates
-    open-pull-requests-limit: 0    
+    open-pull-requests-limit: 0
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+      - "automerge"
+      - "auto-approve"
+    # only update hashicorp actions, external actions managed by tsccr
+    allow:
+      - dependency-name: "hashicorp/*"
