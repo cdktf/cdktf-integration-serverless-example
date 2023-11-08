@@ -1,6 +1,7 @@
 version: 2
 updates:
-  - package-ecosystem: "npm" 
+  - package-ecosystem: "npm"
+    versioning-strategy: "increase"
     directory: "/"
     schedule:
       interval: "weekly"
@@ -12,9 +13,7 @@ updates:
     ignore:
       - dependency-name: "@types/node"
       # For providers, ignore all patch updates for version updates only
-      - dependency-name: "@cdktf/provider-aws"
-        update-types: ["version-update:semver-patch"]
-      - dependency-name: "@cdktf/provider-local"
+      - dependency-name: "@cdktf/provider-*"
         update-types: ["version-update:semver-patch"]
     groups:
       cdktf:
