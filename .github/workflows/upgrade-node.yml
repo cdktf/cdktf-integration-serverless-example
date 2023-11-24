@@ -38,6 +38,9 @@ jobs:
           # Use the below hacky workaround if npm and yarn workspaces still conflict for future updates
           # sed -i "s/$CURRENT_NODEJS_VERSION/$NEW_NODEJS_VERSION/" ./package.json
           yarn add -W -D @types/node@^$NEW_NODEJS_VERSION_SHORT
+      - name: Update the Node version used in GitHub Actions workflows
+        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        run: 'find ./.github/workflows -type f -name "*.yml" -print0 | xargs -0 sed -i "s/node-version: \".*\"/node-version: \"$NEW_NODEJS_VERSION_SHORT\"/g"'
       # If there are other steps you need to take in your project to update Node.js everywhere, add those here
       - name: Get values for pull request
         id: latest_version
