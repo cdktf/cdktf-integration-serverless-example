@@ -1,0 +1,43 @@
+name: update-snapshots
+on:
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+      - synchronize
+  workflow_dispatch: {}
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  update:
+    name: Update Snapshots
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      CI: "true"
+      CHECKPOINT_DISABLE: "1"
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+      - name: Setup Node.js
+        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+        with:
+          node-version: 18.12.0
+      - name: Install
+        run: yarn install
+      - name: Run snapshot update
+        run: yarn test -- --passWithNoTests --updateSnapshot
+        continue-on-error: true
+      - name: Check if there are any changes
+        id: get_changes
+        run: echo "changed=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+      - name: Push changes to branch
+        if: steps.get_changes.outputs.changed != 0
+        run: |-
+          git add .
+          git commit -s -m "chore: update snapshots for tests"
+          git push origin HEAD:$HEAD_REF
