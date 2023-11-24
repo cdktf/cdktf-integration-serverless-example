@@ -12,7 +12,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Install
         run: yarn install
       - name: Get current Node.js version
@@ -26,7 +26,7 @@ jobs:
           echo "value=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           echo "short=$CURRENT_VERSION_SHORT" >> $GITHUB_OUTPUT
       - name: Get the earliest supported Node.js version whose EOL date is at least a month away
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |-
             const script = require('./.github/scripts/check-node-versions.js')
