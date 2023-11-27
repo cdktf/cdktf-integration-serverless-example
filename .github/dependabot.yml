@@ -27,6 +27,10 @@ updates:
           - "ts-jest"
           - "@types/jest"
           - "@jest/*"
+      lodash:
+        patterns:
+          - "lodash"
+          - "@types/lodash"
   - package-ecosystem: npm
     versioning-strategy: lockfile-only
     directory: /frontend/code
