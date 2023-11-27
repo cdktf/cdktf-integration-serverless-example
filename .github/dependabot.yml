@@ -27,22 +27,18 @@ updates:
           - "ts-jest"
           - "@types/jest"
           - "@jest/*"
+      aws:
+        patterns:
+          - "aws-sdk"
+          - "@types/aws-lambda"
       lodash:
         patterns:
           - "lodash"
           - "@types/lodash"
-  - package-ecosystem: npm
-    versioning-strategy: lockfile-only
-    directory: /frontend/code
-    schedule:
-      interval: daily
-    labels:
-      - auto-approve
-      - automerge
-      - dependencies
-      - security
-    # Disable version updates for npm dependencies, only use Dependabot for security updates
-    open-pull-requests-limit: 0
+      uuid:
+        patterns:
+          - "uuid"
+          - "@types/uuid"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
