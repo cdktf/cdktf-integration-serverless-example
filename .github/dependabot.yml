@@ -12,9 +12,9 @@ updates:
     open-pull-requests-limit: 5
     ignore:
       - dependency-name: "@types/node"
-      # For providers, ignore all patch updates for version updates only
+      # For providers, ignore all non-breaking updates for version updates only
       - dependency-name: "@cdktf/provider-*"
-        update-types: ["version-update:semver-patch"]
+        update-types: ["version-update:semver-minor", "version-update:semver-patch"]
     groups:
       cdktf:
         patterns:
