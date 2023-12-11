@@ -7,7 +7,7 @@ on:
       - ready_for_review
       - reopened
       - synchronize
-concurrency: ${{ github.workflow }}-${{ github.ref_name }}
+concurrency: ${{ github.workflow }}-${{ github.head_ref }}
 jobs:
   automerge:
     runs-on: ubuntu-latest
