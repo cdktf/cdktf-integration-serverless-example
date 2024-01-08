@@ -29,7 +29,7 @@
     "@cdktf/provider-local": "^9.0.0",
     "cdktf": "0.19.2",
     "constructs": "^10.3.0",
-    "cron-time-generator": "^2.0.1",
+    "cron-time-generator": "^2.0.3",
     "esbuild": "^0.19.9"
   },
   "devDependencies": {
