@@ -5121,10 +5121,10 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-cron-time-generator@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/cron-time-generator/-/cron-time-generator-2.0.1.tgz#33990c6f70f419218d7f2be2d4e84798835c9fe5"
-  integrity sha512-InQQ4vvnFuaM/fpRHkJ0/EzxVfPstVEXo4wJfZwBJutCJ3x6AESnc0A8Kj7TlorpqTbH601ZZJtnFZuFZaMJyQ==
+cron-time-generator@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/cron-time-generator/-/cron-time-generator-2.0.3.tgz#09c7b2d9a7e0e7c3cfd13ca7bd2fc8aa5847795a"
+  integrity sha512-02Ab5okFEMpcDernEwUXY16hLCryUxATAFGYyzyLymin0xl/udC50LkBFHX+qOeXnwXMRyK+uH4doXzUSpOoQA==
 
 cross-fetch@^3.1.5:
   version "3.1.6"
