@@ -17,7 +17,7 @@ export type Error = {
 
 export function usePosts() {
   const [posts, setPosts] = React.useState<Post[]>([]);
-  const [error, setError] = React.useState<null | string>(null);
+  const [error, setError] = React.useState<null | any>(null);
 
   const triggerRefetch = async () => {
     try {

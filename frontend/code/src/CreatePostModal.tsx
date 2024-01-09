@@ -4,9 +4,11 @@
  */
 
 import React from "react";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
 import { createPost } from "./api";
 import "./CreatePostModal.css";
+
+const Modal = ReactModal as any; // type problem going on here
 
 Modal.setAppElement("#root");
 
