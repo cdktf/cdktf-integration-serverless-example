@@ -27,7 +27,6 @@ updates:
           - "ts-jest"
           - "@types/jest"
           - "@jest/*"
-          - "@testing-library/jest-dom"
       aws:
         patterns:
           - "aws-sdk"
@@ -47,8 +46,7 @@ updates:
           - "react"
           - "react-*"
           - "@types/react*"
-          - "@testing-library/react"
-          - "@testing-library/user-event"
+          - "@testing-library/*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
