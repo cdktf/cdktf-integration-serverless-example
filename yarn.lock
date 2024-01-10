@@ -1302,10 +1302,10 @@
     nan "^2.14.2"
     prebuild-install "^7.1.1"
 
-"@cdktf/provider-aws@^18.0.0":
-  version "18.2.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-18.2.0.tgz#ef1c6088111754fff0f9712d85811a7e4d891821"
-  integrity sha512-Dm+ORqd9ttGH8PqdDe4q72QHoHO0BfgBEMDasagcP4b0lhYV3oiYxJtHsqdOJEKiv6EvHZT3/iftXwU2uOjnlA==
+"@cdktf/provider-aws@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-19.0.0.tgz#569351643b9d6a4b55f47a2495e7520b5f5d8d54"
+  integrity sha512-6z+rweCWMHgxbGC2a8wpUM4uHzPowbhOPZHQl3pPF7fHnDhJkhoFwSLZyC4XDTjpeX92222ens91DmQHB5+xLg==
 
 "@cdktf/provider-generator@0.20.0":
   version "0.20.0"
@@ -1320,10 +1320,10 @@
     glob "10.3.10"
     jsii-srcmak "0.1.999"
 
-"@cdktf/provider-local@^9.0.0":
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-9.0.1.tgz#ac806c8563a1f3aaf97a7746dd98afcec24d8407"
-  integrity sha512-8CEbPmTfqXYLOVbTMqPtniWlKe+VyeuTsVEXvdHVUmn/WREs2wsYwrQ2DEeekGwrkgI2CL9n17HFI6CyZdMtiQ==
+"@cdktf/provider-local@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-local/-/provider-local-10.0.0.tgz#ad95c98744dbc566ae67838b0d6b1cdc79616dec"
+  integrity sha512-FrVQtKiv9YaxZmige/uBH/7tjyxFujTm4wM4QhL2FnUhUQABDgEPE3LSZs6vjgMJErpvAjaY977OVSOLw5Nr+w==
 
 "@cdktf/provider-schema@0.20.0":
   version "0.20.0"
