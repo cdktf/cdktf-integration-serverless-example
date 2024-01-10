@@ -25,8 +25,8 @@
     "node": ">= 18.12.0"
   },
   "dependencies": {
-    "@cdktf/provider-aws": "^18.0.0",
-    "@cdktf/provider-local": "^9.0.0",
+    "@cdktf/provider-aws": "^19.0.0",
+    "@cdktf/provider-local": "^10.0.0",
     "cdktf": "0.20.0",
     "constructs": "^10.3.0",
     "cron-time-generator": "^2.0.3",
