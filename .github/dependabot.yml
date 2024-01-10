@@ -27,10 +27,13 @@ updates:
           - "ts-jest"
           - "@types/jest"
           - "@jest/*"
+          - "@testing-library/jest-dom"
       aws:
         patterns:
           - "aws-sdk"
+          - "dynamodb-toolbox"
           - "@types/aws-lambda"
+          - "@aws-sdk/*"
       lodash:
         patterns:
           - "lodash"
@@ -39,6 +42,12 @@ updates:
         patterns:
           - "uuid"
           - "@types/uuid"
+      react:
+        patterns:
+          - "react"
+          - "react-*"
+          - "@types/react*"
+          - "@testing-library/react"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
