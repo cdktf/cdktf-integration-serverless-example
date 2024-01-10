@@ -48,6 +48,7 @@ updates:
           - "react-*"
           - "@types/react*"
           - "@testing-library/react"
+          - "@testing-library/user-event"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
