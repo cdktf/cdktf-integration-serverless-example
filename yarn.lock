@@ -5133,10 +5133,10 @@ duplexer@^0.1.2:
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
   integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
-dynamodb-toolbox@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/dynamodb-toolbox/-/dynamodb-toolbox-0.7.0.tgz#379dccc30855de184d2d1bb8d9b3b52272e77990"
-  integrity sha512-LvWciwtBZm5UKAXuseYoTTjoR3+9FIqGcqPQl/LcQTP36nOoXQ6ldXxkhSJCKglO4v4JNWR7fooD+79SoD05vg==
+dynamodb-toolbox@^0.8.5:
+  version "0.8.5"
+  resolved "https://registry.yarnpkg.com/dynamodb-toolbox/-/dynamodb-toolbox-0.8.5.tgz#a04383d999e1c0fa582cd697d304f01d160165f9"
+  integrity sha512-cCoZ19SX16tcd14I/V1Eh3VNthvk7xneSJkcsUsDiLMuP+97WGH9Q1SdfAn8rRjOXS71noguZL3hBz9QFI5mRw==
   dependencies:
     deep-copy "^1.4.2"
     ts-toolbelt "^9.6.0"

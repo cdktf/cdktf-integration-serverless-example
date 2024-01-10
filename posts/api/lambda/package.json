@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1532.0",
-    "dynamodb-toolbox": "^0.7.0",
+    "dynamodb-toolbox": "^0.8.5",
     "lodash": "^4.17.21",
     "uuid": "^9.0.1"
   },
