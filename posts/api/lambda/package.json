@@ -8,13 +8,13 @@
     "compile": "tsc"
   },
   "dependencies": {
-    "aws-sdk": "^2.1545.0",
+    "aws-sdk": "^2.1555.0",
     "dynamodb-toolbox": "^0.7.0",
     "lodash": "^4.17.21",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.132",
+    "@types/aws-lambda": "^8.10.133",
     "@types/lodash": "^4.14.202",
     "@types/uuid": "^9.0.8",
     "typescript": "^5.3.3"
