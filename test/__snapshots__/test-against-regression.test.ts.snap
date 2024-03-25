@@ -178,12 +178,12 @@ exports[`Tests against regression of synth output has no change in PostsStack Co
             "DYNAMODB_TABLE_NAME": "\${aws_dynamodb_table.posts_storage_table_50F8EECB.name}"
           }
         },
-        "filename": "assets/posts_api_code_lambda-asset_7F9E9FED/86D1F6B5FD24FD921066876D848A15B5/archive.zip",
+        "filename": "assets/posts_api_code_lambda-asset_7F9E9FED/11A063A838D08CE6F5329C62A8AFE7F9/archive.zip",
         "function_name": "sls-example-posts-api-developmentregression-test",
         "handler": "index.handler",
         "role": "\${aws_iam_role.posts_api_lambda-exec_B42627E0.arn}",
         "runtime": "nodejs14.x",
-        "source_code_hash": "86D1F6B5FD24FD921066876D848A15B5"
+        "source_code_hash": "11A063A838D08CE6F5329C62A8AFE7F9"
       }
     },
     "aws_lambda_permission": {
