@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.137",
-    "@types/lodash": "^4.17.0",
+    "@types/lodash": "^4.17.1",
     "@types/uuid": "^9.0.8",
     "typescript": "^5.4.5"
   }
