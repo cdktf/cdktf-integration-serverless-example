@@ -15,7 +15,7 @@
     "react-modal": "^3.16.1",
     "react-scripts": "^5.0.1",
     "typehole": "^1.7.0",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "web-vitals": "^4.2.0"
   },
   "scripts": {
