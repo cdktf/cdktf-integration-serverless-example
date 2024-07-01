@@ -30,7 +30,7 @@
     "cdktf": "0.20.7",
     "constructs": "^10.3.0",
     "cron-time-generator": "^2.0.3",
-    "esbuild": "^0.21.5"
+    "esbuild": "^0.22.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
