@@ -27,3 +27,10 @@ jobs:
         run: yarn get
       - name: Test
         run: yarn test
+      - name: Comment on failure
+        if: ${{ failure() && github.event.pull_request }}
+        env:
+          PR_ID: ${{ github.event.pull_request.number }}
+          GIT_BRANCH: ${{ github.ref_name }}
+          GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
+        run: gh pr comment $PR_ID "This test failure could mean that the snapshots need to be regenerated. Run `git checkout $GIT_BRANCH` followed by `yarn test -- --passWithNoTests --updateSnapshot`, and commit & push the results."
