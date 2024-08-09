@@ -32,7 +32,7 @@ jobs:
             const script = require('./.github/scripts/check-node-versions.js')
             await script({github, context, core})
       - name: Update the package with the new minimum Node version and update @types/node
-        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         run: |-
           npm pkg set engines.node=">= $NEW_NODEJS_VERSION"
           # Use the below hacky workaround if npm and yarn workspaces still conflict for future updates
@@ -42,17 +42,17 @@ jobs:
           yarn add -W @types/node@^$NEW_NODEJS_VERSION_SHORT
           cd ../..
       - name: Update the Node version used in GitHub Actions workflows
-        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         run: 'find ./.github/workflows -type f -name "*.yml" -print0 | xargs -0 sed -i "s/node-version: \".*\"/node-version: \"$NEW_NODEJS_VERSION_SHORT\"/g"'
       # If there are other steps you need to take in your project to update Node.js everywhere, add those here
       - name: Get values for pull request
         id: latest_version
-        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         run: |-
           echo "value=$NEW_NODEJS_VERSION" >> $GITHUB_OUTPUT
           echo "short=$NEW_NODEJS_VERSION_SHORT" >> $GITHUB_OUTPUT
       - name: Create Pull Request
-        if: env.CURRENT_NODEJS_VERSION_SHORT != env.NEW_NODEJS_VERSION_SHORT
+        if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         uses: peter-evans/create-pull-request@6d6857d36972b65feb161a90e484f2984215f83e # v6.0.5
         with:
           commit-message: "chore!: increase minimum supported Node.js version to ${{ steps.latest_version.outputs.short }}"
