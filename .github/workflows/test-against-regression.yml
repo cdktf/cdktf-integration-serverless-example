@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker.mirror.hashicorp.services/hashicorp/jsii-terraform
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -32,5 +35,5 @@ jobs:
         env:
           PR_ID: ${{ github.event.pull_request.number }}
           GIT_BRANCH: ${{ github.event.pull_request.head.ref }}
-          GH_TOKEN: ${{ secrets.TEAM_TF_CDK }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr comment $PR_ID --body "This test failure could mean that the snapshots need to be regenerated. Run \`git checkout $GIT_BRANCH\` followed by \`yarn test -- --passWithNoTests --updateSnapshot\`, and commit & push the results."
