@@ -16,7 +16,7 @@
     "react-scripts": "^5.0.1",
     "typehole": "^1.7.0",
     "typescript": "^5.6.3",
-    "web-vitals": "^4.2.3"
+    "web-vitals": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
