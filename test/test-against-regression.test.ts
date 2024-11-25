@@ -27,6 +27,13 @@ describe("Tests against regression of synth output", () => {
         });
         const stackSynth = JSON.parse(Testing.synth(stack));
         delete stackSynth["terraform"]
+        
+        // this hash changes whenever dependencies are updated that affect the compiled lambda function
+        const actualHash = stackSynth.resource.aws_lambda_function.posts_api_7D5242CA.source_code_hash;
+        stackSynth.resource.aws_lambda_function.posts_api_7D5242CA.source_code_hash = "DUMMY_HASH";
+        stackSynth.resource.aws_lambda_function.posts_api_7D5242CA.filename =
+            stackSynth.resource.aws_lambda_function.posts_api_7D5242CA.filename.replace(actualHash, "DUMMY_HASH");
+
         expect(JSON.stringify(stackSynth, null, 2)).toMatchSnapshot();
     });
 });
