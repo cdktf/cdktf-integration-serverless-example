@@ -11,7 +11,7 @@
     "aws-sdk": "^2.1692.0",
     "dynamodb-toolbox": "^0.7.0",
     "lodash": "^4.17.21",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.146",
