@@ -34,9 +34,10 @@ jobs:
       - name: Update the package with the new minimum Node version and update @types/node
         if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         run: |-
-          npm pkg set engines.node=">= $NEW_NODEJS_VERSION"
-          # Use the below hacky workaround if npm and yarn workspaces still conflict for future updates
-          # sed -i "s/$CURRENT_NODEJS_VERSION/$NEW_NODEJS_VERSION/" ./package.json
+          # npm pkg set engines.node=">= $NEW_NODEJS_VERSION"
+          # The line above is the ideal way to do this, but this project has a conflict with npm and yarn workspaces
+          # Hence we just do it in this hacky way:
+          sed -i "s/$CURRENT_NODEJS_VERSION/$NEW_NODEJS_VERSION/" ./package.json
           yarn add -W -D @types/node@^$NEW_NODEJS_VERSION_SHORT
           cd ./frontend/code
           yarn add -W @types/node@^$NEW_NODEJS_VERSION_SHORT
@@ -44,7 +45,6 @@ jobs:
       - name: Update the Node version used in GitHub Actions workflows
         if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
         run: 'find ./.github/workflows -type f -name "*.yml" -print0 | xargs -0 sed -i "s/node-version: \".*\"/node-version: \"$NEW_NODEJS_VERSION_SHORT\"/g"'
-      # If there are other steps you need to take in your project to update Node.js everywhere, add those here
       - name: Get values for pull request
         id: latest_version
         if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
