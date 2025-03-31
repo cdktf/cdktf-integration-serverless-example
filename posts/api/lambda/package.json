@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1692.0",
-    "dynamodb-toolbox": "^0.7.0",
+    "dynamodb-toolbox": "^2.0.0",
     "lodash": "^4.17.21",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.147",
+    "@types/aws-lambda": "^8.10.148",
     "@types/lodash": "^4.17.16",
     "@types/uuid": "^10.0.0",
     "typescript": "^5.8.2"
