@@ -12,7 +12,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Install
         run: yarn install
       - name: Get current Node.js version
@@ -53,7 +53,7 @@ jobs:
           echo "short=$NEW_NODEJS_VERSION_SHORT" >> $GITHUB_OUTPUT
       - name: Create Pull Request
         if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
-        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6.1.0
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
           commit-message: "chore!: increase minimum supported Node.js version to ${{ steps.latest_version.outputs.short }}"
           branch: auto/upgrade-node-${{ steps.latest_version.outputs.short }}
