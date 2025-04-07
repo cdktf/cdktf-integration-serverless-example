@@ -17,6 +17,6 @@
     "@types/aws-lambda": "^8.10.148",
     "@types/lodash": "^4.17.16",
     "@types/uuid": "^10.0.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }
