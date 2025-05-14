@@ -55,6 +55,3 @@ updates:
       - "dependencies"
       - "automerge"
       - "auto-approve"
-    # only update hashicorp actions, external actions managed by tsccr
-    allow:
-      - dependency-name: "hashicorp/*"
