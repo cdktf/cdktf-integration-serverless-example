@@ -12222,9 +12222,9 @@ wbuf@^1.1.0, wbuf@^1.7.3:
     minimalistic-assert "^1.0.0"
 
 web-vitals@^5.0.0:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-5.0.1.tgz#c8bc10e805f665f9ae468039703d5b2d0a9da22b"
-  integrity sha512-BsULPWaCKAAtNntUz0aJq1cu1wyuWmDzf4N6vYNMbYA6zzQAf2pzCYbyClf+Ui2MI54bt225AwugXIfL1W+Syg==
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-5.0.2.tgz#06bd045d67572545beff0b9080504ab169bb7370"
+  integrity sha512-nhl+fujoz9Io6MdDSyGSiiUSR1DLMvD3Mde1sNaRKrNwsEFYQICripmEIyUvE2DPKDkW1BbHa4saEDo1U/2D/Q==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
