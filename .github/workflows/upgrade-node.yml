@@ -42,9 +42,9 @@ jobs:
           # The line above is the ideal way to do this, but this project has a conflict with npm and yarn workspaces
           # Hence we just do it in this hacky way:
           sed -i "s/$CURRENT_NODEJS_VERSION/$NEW_NODEJS_VERSION/" ./package.json
-          yarn add -W -D @types/node@^$NEW_NODEJS_VERSION_SHORT
+          yarn add -W -D --ignore-engines @types/node@^$NEW_NODEJS_VERSION_SHORT
           cd ./frontend/code
-          yarn add -W @types/node@^$NEW_NODEJS_VERSION_SHORT
+          yarn add -W --ignore-engines @types/node@^$NEW_NODEJS_VERSION_SHORT
           cd ../..
       - name: Update the Node version used in GitHub Actions workflows
         if: env.CURRENT_NODEJS_VERSION_SHORT < env.NEW_NODEJS_VERSION_SHORT
