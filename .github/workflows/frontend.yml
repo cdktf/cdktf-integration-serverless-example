@@ -24,7 +24,8 @@ jobs:
         with:
           node-version: "20"
       - name: Install
-        run: yarn install
+        run: yarn
+        working-directory: ./frontend/code
       - name: Do a build of the frontend
         run: yarn build
         working-directory: ./frontend/code
