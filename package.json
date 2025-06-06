@@ -19,7 +19,8 @@
     "deploy:frontend": "yarn workspace frontend run deploy",
     "destroy:dev": "yarn destroy:frontend && cdktf destroy '*-dev'",
     "destroy:prod": "yarn destroy:frontend && cdktf destroy '*-prod'",
-    "destroy:frontend": "yarn workspace frontend run destroy"
+    "destroy:frontend": "yarn workspace frontend run destroy",
+    "reset": "find . -type dir -name node_modules | xargs rm -rf && rm -rf yarn.lock"
   },
   "engines": {
     "node": ">= 20.9.0"
