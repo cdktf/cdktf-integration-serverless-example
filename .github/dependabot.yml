@@ -18,6 +18,9 @@ updates:
       # Web Vitals v5 has a bunch of incompatible breaking changes that we don't want to deal with
       - dependency-name: "web-vitals"
         update-types: ["version-update:semver-major"]
+      # Tailwind v4 also has a bunch of incompatible breaking changes that we can't be bothered with
+      - dependency-name: "tailwindcss"
+        update-types: ["version-update:semver-major"]
     groups:
       cdktf:
         patterns:
