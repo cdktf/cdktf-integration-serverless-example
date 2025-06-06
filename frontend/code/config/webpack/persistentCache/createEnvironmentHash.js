@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 'use strict';
 const { createHash } = require('crypto');
 

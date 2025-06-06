@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ */
+
 'use strict';
 
 const babelJest = require('babel-jest').default;
