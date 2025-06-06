@@ -15,6 +15,9 @@ updates:
       # For providers, ignore all non-breaking updates for version updates only
       - dependency-name: "@cdktf/provider-*"
         update-types: ["version-update:semver-minor", "version-update:semver-patch"]
+      # Web Vitals v5 has a bunch of incompatible breaking changes that we don't want to deal with
+      - dependency-name: "web-vitals"
+        update-types: ["version-update:semver-major"]
     groups:
       cdktf:
         patterns:

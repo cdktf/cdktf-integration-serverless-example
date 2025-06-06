@@ -8,15 +8,18 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
-    "@types/react": "^19.1.1",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-modal": "^3.16.3",
     "react-scripts": "^5.0.1",
     "typehole": "^1.7.0",
     "typescript": "^5.8.3",
-    "web-vitals": "^5.0.0"
+    "web-vitals": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/react-modal": "^3.16.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,9 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/react-modal": "^3.16.3"
   },
   "workspaces": {
     "nohoist": [
