@@ -27,9 +27,15 @@ updates:
       jest:
         patterns:
           - "jest"
+          - "jest-*"
           - "ts-jest"
           - "@types/jest"
           - "@jest/*"
+      eslint:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
       aws:
         patterns:
           - "aws-sdk"
@@ -50,6 +56,26 @@ updates:
           - "react-*"
           - "@types/react*"
           - "@testing-library/*"
+      babel:
+        patterns:
+          - "babel-*"
+          - "@babel/*"
+      webpack:
+        patterns:
+          - "webpack"
+          - "webpack-*"
+          - "@webpack/*"
+          - "*-webpack-plugin"
+          - "*-loader"
+      dotenv:
+        patterns:
+          - "postcss"
+          - "postcss-*"
+          - "@csstools/postcss-*"
+      dotenv:
+        patterns:
+          - "dotenv"
+          - "dotenv-*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:

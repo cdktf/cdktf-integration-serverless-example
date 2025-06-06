@@ -1,5 +1,6 @@
 **/*.d.ts
 node_modules
+package-lock.json
 cdktf.out
 cdktf.log
 *terraform.*.tfstate*
