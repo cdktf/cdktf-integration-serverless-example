@@ -297,6 +297,8 @@ module.exports = function (webpackEnv) {
       ],
     },
     resolve: {
+      // @See https://github.com/webpack/webpack/issues/1643
+      symlinks: false,
       // This allows you to set a fallback for where webpack should look for modules.
       // We placed these paths second because we want `node_modules` to "win"
       // if there are any conflicts. This matches Node resolution mechanism.
