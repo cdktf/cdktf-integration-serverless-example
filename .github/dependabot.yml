@@ -71,7 +71,7 @@ updates:
           - "*-webpack-plugin"
           - "*-loader"
           - "@svgr/webpack"
-      dotenv:
+      postcss:
         patterns:
           - "postcss"
           - "postcss-*"
