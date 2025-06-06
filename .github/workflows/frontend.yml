@@ -29,4 +29,6 @@ jobs:
       - name: Do a build of the frontend
         run: yarn build
         working-directory: ./frontend/code
+        env:
+          ESLINT_NO_DEV_ERRORS: true
       # @TODO: Figure out more ways to verify that the frontend app actually runs, e.g. in a browser

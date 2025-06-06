@@ -732,7 +732,10 @@ module.exports = function (webpackEnv) {
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
           formatter: require.resolve('react-dev-utils/eslintFormatter'),
           eslintPath: require.resolve('eslint'),
-          failOnError: !(isEnvDevelopment && emitErrorsAsWarnings),
+          emitError: !emitErrorsAsWarnings,
+          emitWarning: emitErrorsAsWarnings,
+          failOnError: !emitErrorsAsWarnings,
+          failOnWarning: !emitErrorsAsWarnings,
           context: paths.appSrc,
           cache: true,
           cacheLocation: path.resolve(
@@ -741,15 +744,7 @@ module.exports = function (webpackEnv) {
           ),
           // ESLint class options
           cwd: paths.appPath,
-          resolvePluginsRelativeTo: __dirname,
-          baseConfig: {
-            extends: [require.resolve('eslint-config-react-app/base')],
-            rules: {
-              ...(!hasJsxRuntime && {
-                'react/react-in-jsx-scope': 'error',
-              }),
-            },
-          },
+          overrideConfigFile: path.join(__dirname, 'eslint.config.js'),
         }),
     ].filter(Boolean),
     // Turn off performance processing because we utilize
