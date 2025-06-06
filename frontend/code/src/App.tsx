@@ -4,15 +4,14 @@
  */
 
 import React from "react";
-
 import "./App.css";
-import { CreatePostModal } from "./CreatePostModal";
-import { Post } from "./Post";
 import { usePosts } from "./api";
+import { Post } from "./Post";
+import { CreatePostModal } from "./CreatePostModal";
 
 function App() {
   const [isModalOpen, setModalOpen] = React.useState(false);
-  const openPostModal = () => { setModalOpen(true); };
+  const openPostModal = () => setModalOpen(true);
   const closeModal = () => {
     setTimeout(triggerRefetch, 500);
     setModalOpen(false);
