@@ -75,7 +75,9 @@
     "test": "node scripts/test.js",
     "predeploy": "yarn build",
     "deploy": "node scripts/deploy.js",
-    "destroy": "node scripts/destroy.js"
+    "destroy": "node scripts/destroy.js",
+    "lint": "eslint -c config/eslint.config.js",
+    "lint:fix": "npm run lint -- --fix"
   },
   "eslintConfig": {
     "extends": [

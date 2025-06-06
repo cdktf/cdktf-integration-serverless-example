@@ -4,9 +4,7 @@
  */
 
 import React from "react";
-
 import ReactModal from "react-modal";
-
 import { createPost } from "./api";
 import "./CreatePostModal.css";
 
@@ -14,10 +12,10 @@ const Modal = ReactModal as any; // type problem going on here
 
 Modal.setAppElement("#root");
 
-interface Props {
+type Props = {
   isModalOpen: boolean;
   closeModal: () => void;
-}
+};
 
 function inputValues([value, setter]: [
   value: string,
@@ -25,7 +23,7 @@ function inputValues([value, setter]: [
 ]) {
   return {
     value,
-    onChange: (e: any) => { setter(e.target.value); },
+    onChange: (e: any) => setter(e.target.value),
   };
 }
 

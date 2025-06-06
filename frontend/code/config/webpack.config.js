@@ -729,11 +729,13 @@ module.exports = function (webpackEnv) {
       !disableESLintPlugin &&
         new ESLintPlugin({
           // Plugin options
-          configType: 'flat',
           extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
           formatter: require.resolve('react-dev-utils/eslintFormatter'),
           eslintPath: require.resolve('eslint'),
-          failOnError: !(isEnvDevelopment && emitErrorsAsWarnings),
+          emitError: !emitErrorsAsWarnings,
+          emitWarning: emitErrorsAsWarnings,
+          failOnError: !emitErrorsAsWarnings,
+          failOnWarning: !emitErrorsAsWarnings,
           context: paths.appSrc,
           cache: true,
           cacheLocation: path.resolve(

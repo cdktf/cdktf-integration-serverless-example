@@ -8,7 +8,7 @@ const importPlugin = require('eslint-plugin-import');
 const eslintPluginReact = require('eslint-plugin-react');
 const tseslint = require('typescript-eslint');
 
-// @source https://gist.github.com/cmdcolin/22c4b3bbf8a32d0ff530fde12453d129
+// adapted from https://gist.github.com/cmdcolin/22c4b3bbf8a32d0ff530fde12453d129
 module.exports = tseslint.config(
   {
     // might be able to find a way to not ignore some of these but i just ignore them
