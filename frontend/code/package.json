@@ -60,12 +60,14 @@
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "@types/react-modal": "^3.16.3",
+    "eslint": "^9.28.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-webpack-plugin": "^5.0.1",
     "jest": "^29.7.0",
     "jest-resolve": "^29.7.0",
     "jest-watch-typeahead": "^2.2.2",
-    "eslint": "^9.28.0",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-webpack-plugin": "^5.0.1"
+    "typescript-eslint": "^8.33.1"
   },
   "scripts": {
     "start": "node scripts/start.js",

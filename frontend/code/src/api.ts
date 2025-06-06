@@ -6,14 +6,14 @@
 import React from "react";
 
 const API_URL = process.env.REACT_APP_API_ENDPOINT || "http://localhost:4000";
-export type Post = {
+export interface Post {
   content: string;
   id: string;
-};
+}
 
-export type Error = {
+export interface Error {
   error: string;
-};
+}
 
 export function usePosts() {
   const [posts, setPosts] = React.useState<Post[]>([]);
@@ -63,10 +63,10 @@ export function usePostDetail(id: string) {
   return detail;
 }
 
-type Data = {
+interface Data {
   content: string;
   author: string;
-};
+}
 export function createPost(data: Data) {
   fetch(`${API_URL}/posts`, {
     method: "POST",
