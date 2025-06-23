@@ -1222,10 +1222,10 @@
     nan "^2.14.2"
     prebuild-install "^7.1.3"
 
-"@cdktf/provider-aws@^20.0.0":
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-20.0.0.tgz#fe68c476d0df117e686c5e202ba1013577e97612"
-  integrity sha512-0HqghxNT8Vhbx/FPB237IqCVMbGlAsIra6LKt3bGGAKA+59tMCx0TtaPpy6AM6o9dS30A+UpewTw4D3NbTuYMA==
+"@cdktf/provider-aws@^21.0.0":
+  version "21.0.0"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-aws/-/provider-aws-21.0.0.tgz#415f61761865dae64cf8bbe067bd43fb27def818"
+  integrity sha512-oZ2wvckEEcTEEs3Pbd+rwMy4ZBtgqTcl4v+8J0ax31bzKyOBinC1v73GIXhqviKtcYNvSm26RkFCGOA237Xhvg==
 
 "@cdktf/provider-generator@0.21.0":
   version "0.21.0"
