@@ -34,7 +34,7 @@
     "esbuild": "^0.25.2"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "cdktf-cli": "0.21.0",
     "jest": "^30.0.0",
