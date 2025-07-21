@@ -2755,9 +2755,9 @@
     tslib "^2.4.0"
 
 "@types/aws-lambda@^8.10.149":
-  version "8.10.150"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.150.tgz#4998b238750ec389a326a7cdb625808834036bd3"
-  integrity sha512-AX+AbjH/rH5ezX1fbK8onC/a+HyQHo7QGmvoxAE42n22OsciAxvZoZNEr22tbXs8WfP1nIsBjKDpgPm3HjOZbA==
+  version "8.10.152"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.152.tgz#f68424a8175f0a54a2a941e65b76c3f51f3bd89d"
+  integrity sha512-soT/c2gYBnT5ygwiHPmd9a1bftj462NWVk2tKCc1PYHSIacB2UwbTS2zYG4jzag1mRDuzg/OjtxQjQ2NKRB6Rw==
 
 "@types/babel__core@^7.20.5":
   version "7.20.5"
