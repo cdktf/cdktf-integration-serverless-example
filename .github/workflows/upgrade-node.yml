@@ -30,7 +30,7 @@ jobs:
           echo "value=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           echo "short=$CURRENT_VERSION_SHORT" >> $GITHUB_OUTPUT
       - name: Get the earliest supported Node.js version whose EOL date is at least a month away
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         with:
           script: |-
             const script = require('./.github/scripts/check-node-versions.js')
